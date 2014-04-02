@@ -1,0 +1,10 @@
+#contact ul li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  list-style: none;
+}
+
+#contact ul li i{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

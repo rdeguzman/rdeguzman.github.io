@@ -8,3 +8,20 @@
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
+#experiences {
+  list-style: none;
+}
+
+#experiences .row {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.experience {
+  font-size: 18px;
+}
+
+.experience .title {
+  font-weight: bold;
+}

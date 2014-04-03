@@ -2,7 +2,7 @@ var experiences = [
   {
     type: "Experience",
     date_to: "now",
-    date_from: "05/01/2011",
+    date_from: "07/25/2011",
     location: "Melbourne, Australia",
     title: "Software Developer",
     company: "Datalink Technologies Pty Ltd",

@@ -1,6 +1,24 @@
 var experiences = [
   {
     type: "Experience",
+    date_to: "now",
+    date_from: "05/01/2011",
+    location: "Melbourne, Australia",
+    title: "Software Developer",
+    company: "Datalink Technologies Pty Ltd",
+    description: "Develop proof of concept mobile applications to support underground asset management for Dial Before You Dig. Technologies include ObjectiveC, C# and Java, Oracle Spatial, Postgres/Postgis, Mapserver and Geoserver. Integration with Google, Bing Maps and deCarta (Java). Spatial analysis (i.e spatial intersections) and geometry transformation using FME."
+  },
+  {
+    type: "Experience",
+    date_to: "07/01/2011",
+    date_from: "05/01/2011",
+    location: "Melbourne, Australia",
+    title: "iPhone Developer",
+    company: "PlayUp / Revo Pty Ltd",
+    description: "Develop proof of concept mobile applications to support underground asset management for Dial Before You Dig. Technologies include ObjectiveC, C# and Java, Oracle Spatial, Postgres/Postgis, Mapserver and Geoserver. Integration with Google, Bing Maps and deCarta (Java). Spatial analysis (i.e spatial intersections) and geometry transformation using FME."
+  },
+  {
+    type: "Experience",
     date_to: "05/01/2011",
     date_from: "05/01/2009",
     location: "Melbourne, Australia",
@@ -35,13 +53,13 @@ function getShortDate(dt){
 
 function getFormattedDate(dtStart, dtEnd){
   var dateStart = new Date(dtStart);
-  var dateEnd = new Date(dtEnd);
+  var dateEnd = (dtEnd == 'now') ? new Date() : new Date(dtEnd);
   return getShortDate(dateStart) + " - " + getShortDate(dateEnd);
 }
 
 function getDuration(dtStart, dtEnd){
   var dateStart = new Date(dtStart);
-  var dateEnd = new Date(dtEnd);
+  var dateEnd = (dtEnd == 'now') ? new Date() : new Date(dtEnd);
 
   var diffInMilliseconds = Math.abs(dateStart - dateEnd);
   var one_day=1000*60*60*24;

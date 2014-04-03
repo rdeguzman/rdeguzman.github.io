@@ -31,7 +31,7 @@ var experiences = [
     date_to: "01/02/2009",
     date_from: "11/01/2006",
     location: "Beijing, China",
-    title: "Team Lead / Development Manager",
+    title: "Team Lead / Tech Lead",
     company: "Cybersoft Beijing Information Technology",
     description: "Cybersoft Beijing is involved in providing mobile travel and mapping systems to telecom providers in China during the Beijing 2008 Olympics."
   },

@@ -20,6 +20,11 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <!-- Load google maps javascript api 3-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZ3clfn3Sp9N1Ou9V6w5z5aN0q9BdtI48&sensor=false"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -41,7 +46,7 @@
             <p class="lead">Senior GeoDeveloper</p>
           </div>
 
-          <div class="col-md-3" id="contact">
+          <div class="col-md-3 contact">
             <ul class="fa-ul fa-lg">
               <li><i class="fa-li fa fa-globe"></i> Melbourne, Australia </li>
               <li><i class="fa-li fa fa-envelope"></i> <a href="mailto:rupert@2rmobile.com">rupert@2rmobile.com</a> </li>
@@ -49,7 +54,7 @@
             </ul>
           </div>
 
-          <div class="col-md-3" id="contact">
+          <div class="col-md-3 contact">
             <ul class="fa-ul fa-lg">
               <li><i class="fa-li fa fa-home"></i> <a href="http://blog.geocoding.io">blog.geocoding.io</a> </li>
               <li><i class="fa-li fa fa-github"></i> <a href="http://www.github.com/rdeguzman">github.com/rdeguzman</a> </li>
@@ -63,13 +68,13 @@
 
       <div class="row">
 
-        <div class="col-md-6">
+        <div class="col-md-5">
           <h3>Work Experience</h3>
           <div id="experiences"></div>
         </div>
 
-        <div class="col-md-6">
-
+        <div class="col-md-7">
+          <div id="map-canvas"></div>
         </div>
 
       </div>

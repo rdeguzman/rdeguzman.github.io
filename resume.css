@@ -1,10 +1,10 @@
-#contact ul li {
+.contact ul li {
   padding-top: 10px;
   padding-bottom: 10px;
   list-style: none;
 }
 
-#contact ul li i{
+.contact ul li i{
   padding-top: 5px;
   padding-bottom: 5px;
 }
@@ -25,4 +25,9 @@
 .experience .title {
   font-weight: bold;
   font-size: 20px;
+}
+
+#map-canvas {
+  width: 100%;
+  height: 500px;
 }

@@ -1,4 +1,4 @@
-var map, marker_bounds;
+var map, featureLayer;
 
 var geojson = [
   {
@@ -8,6 +8,7 @@ var geojson = [
       "coordinates": [145.228883,-37.926672]
     },
     "properties": {
+      "id": 1,
       "marker-color": "#D73C50",
       "marker-size": "large",
       "marker-symbol": "car",
@@ -27,6 +28,7 @@ var geojson = [
       "coordinates": [144.97652500000004, -37.837833]
     },
     "properties": {
+      "id": 2,
       "marker-color": "#0A2628",
       "marker-size": "large",
       "marker-symbol": "city",
@@ -46,6 +48,7 @@ var geojson = [
       "coordinates": [144.987975, -37.806503]
     },
     "properties": {
+      "id": 3,
       "marker-color": "#479C8C",
       "marker-size": "large",
       "marker-symbol": "america-football",
@@ -65,6 +68,7 @@ var geojson = [
       "coordinates": [116.40752599999996, 39.90403]
     },
     "properties": {
+      "id": 4,
       "marker-color": "#6EB4A4",
       "marker-size": "large",
       "marker-symbol": "suitcase",
@@ -84,6 +88,7 @@ var geojson = [
       "coordinates": [121.03002500000002, 14.639163]
     },
     "properties": {
+      "id": 5,
       "marker-color": "#98CAB7",
       "marker-size": "large",
       "marker-symbol": "mobilephone",
@@ -150,7 +155,7 @@ function createExperiences(){
     html += "    <small>" + ex.location + "</small>";
     html += "  </div>";
     html += "  <div class='col-md-8 experience'>";
-    html += "    <div class='title'>" + ex.title + "</div>";
+    html += "    <div class='title'><a href='javascript:openPopup(" + ex.id + ");'>" + ex.title + "</a></div>";
     html += "    <div class='company'>" + ex.company + "</div>";
     html += "  </div>";
     html += "</div>";
@@ -162,10 +167,22 @@ function createExperiences(){
 function initMap() {
   map = L.mapbox.map('map-canvas', 'rupert.hnb5c3da');
 
-  var featureLayer = L.mapbox.featureLayer(geojson).addTo(map);
-
+  featureLayer = L.mapbox.featureLayer(geojson).addTo(map);
   map.fitBounds(featureLayer.getBounds());
   map.setZoom(3);
+
+  featureLayer.on('click', function(e) {
+    map.panTo(e.layer.getLatLng());
+  });
+}
+
+function openPopup(markerId) {
+  featureLayer.eachLayer(function(marker) {
+    if (marker.feature.properties.id === markerId) {
+      marker.openPopup();
+      map.panTo(marker.getLatLng());
+    }
+  });
 }
 
 $( document ).ready(function() {

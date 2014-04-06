@@ -56,7 +56,7 @@ var geojson = [
       date_to: "05/01/2011",
       date_from: "05/01/2009",
       location: "Melbourne, Australia",
-      title: "Mobile Developer",
+      title: "GIS and Mobile Developer",
       company: "PelicanCorp Pty Ltd",
       description: "Develop proof of concept mobile applications to support underground asset management for Dial Before You Dig. Technologies include ObjectiveC, C# and Java, Oracle Spatial, Postgres/Postgis, Mapserver and Geoserver. Integration with Google, Bing Maps and deCarta (Java). Spatial analysis (i.e spatial intersections) and geometry transformation using FME."
     }

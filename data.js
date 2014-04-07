@@ -12,13 +12,13 @@ var geojson = [
       "marker-color": "#D73C50",
       "marker-size": "large",
       "marker-symbol": "car",
-      category: "Experience",
-      date_to: "now",
-      date_from: "07/25/2011",
-      location: "Melbourne, Australia",
-      title: "Software Developer",
-      company: "Datalink Technologies Pty Ltd",
-      description: "Develop proof of concept mobile applications to support underground asset management for Dial Before You Dig. Technologies include ObjectiveC, C# and Java, Oracle Spatial, Postgres/Postgis, Mapserver and Geoserver. Integration with Google, Bing Maps and deCarta (Java). Spatial analysis (i.e spatial intersections) and geometry transformation using FME."
+      "category": "Experience",
+      "date_to": "now",
+      "date_from": "07/25/2011",
+      "location": "Melbourne, Australia",
+      "title": "Software Developer",
+      "company": "Datalink Technologies Pty Ltd",
+      "description": "Develop proof of concept mobile applications to support underground asset management for Dial Before You Dig. Technologies include ObjectiveC, C# and Java, Oracle Spatial, Postgres/Postgis, Mapserver and Geoserver. Integration with Google, Bing Maps and deCarta (Java). Spatial analysis (i.e spatial intersections) and geometry transformation using FME."
     }
   },
   {
@@ -32,13 +32,13 @@ var geojson = [
       "marker-color": "#0A2628",
       "marker-size": "large",
       "marker-symbol": "city",
-      category: "Experience",
-      date_to: "07/01/2011",
-      date_from: "05/01/2011",
-      location: "Melbourne, Australia",
-      title: "iPhone Developer",
-      company: "PlayUp / Revo Pty Ltd",
-      description: "Develop proof of concept mobile applications to support underground asset management for Dial Before You Dig. Technologies include ObjectiveC, C# and Java, Oracle Spatial, Postgres/Postgis, Mapserver and Geoserver. Integration with Google, Bing Maps and deCarta (Java). Spatial analysis (i.e spatial intersections) and geometry transformation using FME."
+      "category": "Experience",
+      "date_to": "07/01/2011",
+      "date_from": "05/01/2011",
+      "location": "Melbourne, Australia",
+      "title": "iPhone Developer",
+      "company": "PlayUp / Revo Pty Ltd",
+      "description": "Develop proof of concept mobile applications to support underground asset management for Dial Before You Dig. Technologies include ObjectiveC, C# and Java, Oracle Spatial, Postgres/Postgis, Mapserver and Geoserver. Integration with Google, Bing Maps and deCarta (Java). Spatial analysis (i.e spatial intersections) and geometry transformation using FME."
     }
   },
   {
@@ -52,13 +52,13 @@ var geojson = [
       "marker-color": "#479C8C",
       "marker-size": "large",
       "marker-symbol": "america-football",
-      category: "Experience",
-      date_to: "05/01/2011",
-      date_from: "05/01/2009",
-      location: "Melbourne, Australia",
-      title: "GIS and Mobile Developer",
-      company: "PelicanCorp Pty Ltd",
-      description: "Develop proof of concept mobile applications to support underground asset management for Dial Before You Dig. Technologies include ObjectiveC, C# and Java, Oracle Spatial, Postgres/Postgis, Mapserver and Geoserver. Integration with Google, Bing Maps and deCarta (Java). Spatial analysis (i.e spatial intersections) and geometry transformation using FME."
+      "category": "Experience",
+      "date_to": "05/01/2011",
+      "date_from": "05/01/2009",
+      "location": "Melbourne, Australia",
+      "title": "GIS and Mobile Developer",
+      "company": "PelicanCorp Pty Ltd",
+      "description": "Develop proof of concept mobile applications to support underground asset management for Dial Before You Dig. Technologies include ObjectiveC, C# and Java, Oracle Spatial, Postgres/Postgis, Mapserver and Geoserver. Integration with Google, Bing Maps and deCarta (Java). Spatial analysis (i.e spatial intersections) and geometry transformation using FME."
     }
   },
   {
@@ -72,13 +72,13 @@ var geojson = [
       "marker-color": "#6EB4A4",
       "marker-size": "large",
       "marker-symbol": "suitcase",
-      category: "Experience",
-      date_to: "01/02/2009",
-      date_from: "11/01/2006",
-      location: "Beijing, China",
-      title: "Team Lead / Tech Lead",
-      company: "Cybersoft Beijing Information Technology",
-      description: "Cybersoft Beijing is involved in providing mobile travel and mapping systems to telecom providers in China during the Beijing 2008 Olympics."
+      "category": "Experience",
+      "date_to": "01/02/2009",
+      "date_from": "11/01/2006",
+      "location": "Beijing, China",
+      "title": "Team Lead / Tech Lead",
+      "company": "Cybersoft Beijing Information Technology",
+      "description": "Cybersoft Beijing is involved in providing mobile travel and mapping systems to telecom providers in China during the Beijing 2008 Olympics."
     }
   },
   {
@@ -92,13 +92,13 @@ var geojson = [
       "marker-color": "#98CAB7",
       "marker-size": "large",
       "marker-symbol": "mobilephone",
-      category: "Experience",
-      date_to: "2006/10/01",
-      date_from: "2004/05/01",
-      location: "Manila, Philippines",
-      title: "Systems Admin / Lead Developer",
-      company: "Cybersoft Integrated Geoinformatics Inc",
-      description: "Cybersoft GeoInformatics is responsible in providing GIS data and mapping capabilities to DPC YellowPages, Mapcentral Philippines and Telecom Providers. It also has extensive experience in vehicle asset tracking and monitoring thru PLDT."
+      "category": "Experience",
+      "date_to": "2006/10/01",
+      "date_from": "2004/05/01",
+      "location": "Manila, Philippines",
+      "title": "Systems Admin / Lead Developer",
+      "company": "Cybersoft Integrated Geoinformatics Inc",
+      "description": "Cybersoft GeoInformatics is responsible in providing GIS data and mapping capabilities to DPC YellowPages, Mapcentral Philippines and Telecom Providers. It also has extensive experience in vehicle asset tracking and monitoring thru PLDT."
     }
   }
 ];

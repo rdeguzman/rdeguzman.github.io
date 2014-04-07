@@ -12,6 +12,7 @@ var geojson = [
       "marker-color": "#D73C50",
       "marker-size": "large",
       "marker-symbol": "car",
+      "icon": "pin-l-car+D73C50@2x.png",
       "category": "Experience",
       "date_to": "now",
       "date_from": "07/25/2011",
@@ -29,9 +30,10 @@ var geojson = [
     },
     "properties": {
       "id": 2,
-      "marker-color": "#0A2628",
+      "marker-color": "#479C8C",
       "marker-size": "large",
-      "marker-symbol": "city",
+      "marker-symbol": "america-football",
+      "icon": "pin-l-america-football+479C8C@2x.png",
       "category": "Experience",
       "date_to": "07/01/2011",
       "date_from": "05/01/2011",
@@ -49,9 +51,10 @@ var geojson = [
     },
     "properties": {
       "id": 3,
-      "marker-color": "#479C8C",
+      "marker-color": "#0A2628",
       "marker-size": "large",
-      "marker-symbol": "america-football",
+      "marker-symbol": "city",
+      "icon": "pin-l-city+0A2628@2x.png",
       "category": "Experience",
       "date_to": "05/01/2011",
       "date_from": "05/01/2009",
@@ -72,6 +75,7 @@ var geojson = [
       "marker-color": "#6EB4A4",
       "marker-size": "large",
       "marker-symbol": "suitcase",
+      "icon": "pin-l-suitcase+6EB4A4@2x.png",
       "category": "Experience",
       "date_to": "01/02/2009",
       "date_from": "11/01/2006",
@@ -92,6 +96,7 @@ var geojson = [
       "marker-color": "#98CAB7",
       "marker-size": "large",
       "marker-symbol": "mobilephone",
+      "icon": "pin-l-mobilephone+98CAB7@2x.png",
       "category": "Experience",
       "date_to": "2006/10/01",
       "date_from": "2004/05/01",
@@ -149,12 +154,15 @@ function createExperiences(){
     var ex = geojson[i].properties;
     var html;
     html  = "<div class='row'>";
-    html += "  <div class='col-md-4'>";
+    html += "  <div class='col-md-4 text-right'>";
     html += "    <strong>" + getDuration(ex.date_from, ex.date_to) + "</strong> <br/>";
     html += "    <small>" + getFormattedDate(ex.date_from, ex.date_to) + "</small> <br/>";
     html += "    <small>" + ex.location + "</small>";
     html += "  </div>";
-    html += "  <div class='col-md-8 experience'>";
+    html += "  <div class='col-md-1'>";
+    html += "    <img class='img-circle' width='35' height='90' src='/images/" + ex.icon +"'/>";
+    html += "  </div>";
+    html += "  <div class='col-md-7 experience'>";
     html += "    <div class='title'><a href='javascript:openPopup(" + ex.id + ");'>" + ex.title + "</a></div>";
     html += "    <div class='company'>" + ex.company + "</div>";
     html += "  </div>";

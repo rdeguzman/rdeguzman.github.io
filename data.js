@@ -169,7 +169,7 @@ function initMap() {
 
   featureLayer = L.mapbox.featureLayer(geojson).addTo(map);
   map.fitBounds(featureLayer.getBounds());
-  map.setZoom(3);
+  map.setZoom(2);
 
   featureLayer.on('click', function(e) {
     map.panTo(e.layer.getLatLng());
@@ -180,7 +180,7 @@ function openPopup(markerId) {
   featureLayer.eachLayer(function(marker) {
     if (marker.feature.properties.id === markerId) {
       marker.openPopup();
-      map.panTo(marker.getLatLng());
+      //map.panTo(marker.getLatLng());
     }
   });
 }

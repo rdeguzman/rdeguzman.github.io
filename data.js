@@ -115,28 +115,6 @@ var geojson = [
     "type": "Feature",
     "geometry": {
       "type": "Point",
-      "coordinates": [121.03002500000002, 14.639163]
-    },
-    "properties": {
-      "id": 6,
-      "marker-color": "#98CAB7",
-      "marker-size": "large",
-      "marker-symbol": "mobilephone",
-      "icon": "pin-l-mobilephone+98CAB7@2x.png",
-      "category": "Experience",
-      "date_to": "2005/11/01",
-      "date_from": "2004/06/01",
-      "location": "Manila, Philippines",
-      "title": "Java Developer ",
-      "company": "Total Transcriptions Solutions Inc - TTSI",
-      "description": "TTSI has 100 employees providing medical transcription for US based clients.",
-      "technology": ["apache","coldfusion","java","linux","mysql","redhat"]
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
       "coordinates": [121.058451, 14.581169]
     },
     "properties": {
@@ -146,8 +124,8 @@ var geojson = [
       "marker-symbol": "mobilephone",
       "icon": "pin-l-mobilephone+98CAB7@2x.png",
       "category": "Experience",
-      "date_to": "2003/01/01",
-      "date_from": "2003/06/01",
+      "date_to": "2003/06/01",
+      "date_from": "2003/01/01",
       "location": "Manila, Philippines",
       "title": "Tech Support Engineer",
       "company": "Sykes Asia + Macromedia",

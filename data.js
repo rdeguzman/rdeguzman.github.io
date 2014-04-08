@@ -108,7 +108,7 @@ var geojson = [
       "title": "Systems Admin / Lead Developer",
       "company": "Cybersoft Integrated Geoinformatics Inc - CIGI",
       "description": "Cybersoft GeoInformatics provides GIS data and mapping capabilities to Telecom Providers in the Philippines",
-      "technology": ["apache","centos","coldfusion","java","javascript","gps","kannel","lbs","linux","mapserver","mapinfo","mobile","mysql","openlayers","sms","web mapping"]
+      "technology": ["apache","centos","coldfusion","java","javascript","gps","kannel","lbs","linux","mapserver","mapinfo","mobile","mysql","openlayers","redhat","sms","web mapping"]
     }
   },
   {

@@ -19,7 +19,8 @@ var geojson = [
       "location": "Melbourne, Australia",
       "title": "Software Developer",
       "company": "Datalink Technologies Pty Ltd",
-      "description": "Develop proof of concept mobile applications to support underground asset management for Dial Before You Dig. Technologies include ObjectiveC, C# and Java, Oracle Spatial, Postgres/Postgis, Mapserver and Geoserver. Integration with Google, Bing Maps and deCarta (Java). Spatial analysis (i.e spatial intersections) and geometry transformation using FME."
+      "description": "Datalink delivers nation-wide fleet management and GPS tracking to the transport industry.",
+      "technology": ["apache","ci","freebsd","javascript","jenkins","jira","geoserver","google maps","mobile","postgres","postgis","rspec","ruby","ruby on rails","web mapping"]
     }
   },
   {
@@ -40,7 +41,8 @@ var geojson = [
       "location": "Melbourne, Australia",
       "title": "iPhone Developer",
       "company": "PlayUp / Revo Pty Ltd",
-      "description": "Develop proof of concept mobile applications to support underground asset management for Dial Before You Dig. Technologies include ObjectiveC, C# and Java, Oracle Spatial, Postgres/Postgis, Mapserver and Geoserver. Integration with Google, Bing Maps and deCarta (Java). Spatial analysis (i.e spatial intersections) and geometry transformation using FME."
+      "description": "PlayUp is a mobile-based social network and commercial platform driven by sport.",
+      "technology": ["mobile","objective-c"]
     }
   },
   {
@@ -61,7 +63,8 @@ var geojson = [
       "location": "Melbourne, Australia",
       "title": "GIS and Mobile Developer",
       "company": "PelicanCorp Pty Ltd",
-      "description": "Develop proof of concept mobile applications to support underground asset management for Dial Before You Dig. Technologies include ObjectiveC, C# and Java, Oracle Spatial, Postgres/Postgis, Mapserver and Geoserver. Integration with Google, Bing Maps and deCarta (Java). Spatial analysis (i.e spatial intersections) and geometry transformation using FME."
+      "description": "PelicanCorp support underground asset management for Dial Before You Dig and utility companies.",
+      "technology": ["c#","bing maps","geoserver","google maps","mobile","objective-c","openlayers","oracle spatial","postgres","postgis","web mapping"]
     }
   },
   {
@@ -82,7 +85,8 @@ var geojson = [
       "location": "Beijing, China",
       "title": "Team Lead / Tech Lead",
       "company": "Cybersoft Beijing Information Technology",
-      "description": "Cybersoft Beijing is involved in providing mobile travel and mapping systems to telecom providers in China during the Beijing 2008 Olympics."
+      "description": "Cybersoft Beijing provides mobile travel and mapping systems to telecom providers in China during the Beijing 2008 Olympics.",
+      "technology": ["apache","centos","coldfusion","c#","extjs","javascript","gps","lbs","linux","mapinfo","mapserver","mapnik","mobile","mysql","openlayers","oracle spatial","postgres","postgis","ruby","ruby on rails","sms","web mapping"]
     }
   },
   {
@@ -102,8 +106,75 @@ var geojson = [
       "date_from": "2004/05/01",
       "location": "Manila, Philippines",
       "title": "Systems Admin / Lead Developer",
-      "company": "Cybersoft Integrated Geoinformatics Inc",
-      "description": "Cybersoft GeoInformatics is responsible in providing GIS data and mapping capabilities to DPC YellowPages, Mapcentral Philippines and Telecom Providers. It also has extensive experience in vehicle asset tracking and monitoring thru PLDT."
+      "company": "Cybersoft Integrated Geoinformatics Inc - CIGI",
+      "description": "Cybersoft GeoInformatics provides GIS data and mapping capabilities to Telecom Providers in the Philippines",
+      "technology": ["apache","centos","coldfusion","java","javascript","gps","kannel","lbs","linux","mapserver","mapinfo","mobile","mysql","openlayers","sms","web mapping"]
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [121.03002500000002, 14.639163]
+    },
+    "properties": {
+      "id": 6,
+      "marker-color": "#98CAB7",
+      "marker-size": "large",
+      "marker-symbol": "mobilephone",
+      "icon": "pin-l-mobilephone+98CAB7@2x.png",
+      "category": "Experience",
+      "date_to": "2005/11/01",
+      "date_from": "2004/06/01",
+      "location": "Manila, Philippines",
+      "title": "Java Developer ",
+      "company": "Total Transcriptions Solutions Inc - TTSI",
+      "description": "TTSI has 100 employees providing medical transcription for US based clients.",
+      "technology": ["apache","coldfusion","java","linux","mysql","redhat"]
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [121.058451, 14.581169]
+    },
+    "properties": {
+      "id": 7,
+      "marker-color": "#98CAB7",
+      "marker-size": "large",
+      "marker-symbol": "mobilephone",
+      "icon": "pin-l-mobilephone+98CAB7@2x.png",
+      "category": "Experience",
+      "date_to": "2003/01/01",
+      "date_from": "2003/06/01",
+      "location": "Manila, Philippines",
+      "title": "Tech Support Engineer",
+      "company": "Sykes Asia + Macromedia",
+      "description": "Macromedia outsourced its technical support to a call center in the Philippines (Sykes Asia) ",
+      "technology": ["apache","coldfusion","linux","mysql","redhat"]
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [121.033972, 14.642308]
+    },
+    "properties": {
+      "id": 8,
+      "marker-color": "#98CAB7",
+      "marker-size": "large",
+      "marker-symbol": "mobilephone",
+      "icon": "pin-l-mobilephone+98CAB7@2x.png",
+      "category": "Experience",
+      "date_to": "2002/12/30",
+      "date_from": "2002/06/01",
+      "location": "Manila, Philippines",
+      "title": "Coldfusion Developer",
+      "company": "KSDI Knowledge Systems Developers Inc - KSDI",
+      "description": "KSDI is a five-man travel startup deriving its projects from the Cybersoft Group.",
+      "technology": ["apache","coldfusion","linux","mysql","redhat"]
     }
   }
 ];

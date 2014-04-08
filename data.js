@@ -20,7 +20,7 @@ var geojson = [
       "title": "Software Developer",
       "company": "Datalink Technologies Pty Ltd",
       "description": "Datalink delivers nation-wide fleet management and GPS tracking to the transport industry.",
-      "technology": ["apache","ci","freebsd","javascript","jenkins","jira","geoserver","google maps","mobile","postgres","postgis","rspec","ruby","ruby on rails","web mapping"]
+      "technology": ["android","apache","ci","freebsd","java","javascript","jenkins","jira","geoserver","google maps","mobile","postgres","postgis","rspec","ruby","ruby on rails","web mapping"]
     }
   },
   {

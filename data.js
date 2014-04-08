@@ -247,7 +247,81 @@ function openPopup(markerId) {
   });
 }
 
+function getData(){
+  var techHash = {};
+
+  for(var i in geojson) {
+    var dtStart = geojson[i].properties.date_from;
+    var dtEnd = geojson[i].properties.date_to;
+    var durationInMonths = getDurationInMonths(dtStart, dtEnd);
+    var years = round((durationInMonths / 12), 2);
+    var techArray = geojson[i].properties.technology;
+
+    for(var j in techArray){
+      var key = techArray[j];
+
+      if(techHash.hasOwnProperty(key)){
+        techHash[key] = techHash[key] + years;
+      }
+      else {
+        techHash[key] = years;
+      }
+    }
+  }
+
+  //console.log(techHash);
+
+  return techHash;
+}
+
+function round(value, places) {
+    var multiplier = Math.pow(10, places);
+
+    return (Math.round(value * multiplier) / multiplier);
+}
+
+function initChart(){
+  var data = [];
+  var keys = [];
+
+  var hashObj = getData();
+  for(var key in hashObj){
+    keys.push(key);
+    data.push(hashObj[key]);
+  }
+
+  var width = 1080,
+      height = 300;
+
+  var chart = d3.select(".chart")
+      .attr("width", width)
+      .attr("height", height);
+
+  var y = d3.scale.linear()
+      .domain([0, d3.max(data)])
+      .range([height, 0]);
+
+  var barWidth = width / data.length;
+
+  var bar = chart.selectAll("g")
+      .data(data)
+    .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(" + i * barWidth + ",0)"; });
+
+  bar.append("rect")
+        .attr("y", function(d) { return y(d); })
+        .attr("height", function(d) { return height - y(d); })
+        .attr("width", barWidth - 1);
+
+  bar.append("text")
+      .attr("x", barWidth / 2)
+      .attr("y", function(d) { return y(d) + 3; })
+      .attr("dy", ".75em")
+      .text(function(d) { return d; });
+}
+
 $( document ).ready(function() {
   createExperiences();
   initMap();
+  initChart();
 });

@@ -168,7 +168,7 @@ function getFormattedDate(dtStart, dtEnd){
   return getShortDate(dateStart) + " - " + getShortDate(dateEnd);
 }
 
-function getDuration(dtStart, dtEnd){
+function getDurationInMonths(dtStart, dtEnd){
   var dateStart = new Date(dtStart);
   var dateEnd = (dtEnd == 'now') ? new Date() : new Date(dtEnd);
 
@@ -176,6 +176,11 @@ function getDuration(dtStart, dtEnd){
   var one_day=1000*60*60*24;
   var days = diffInMilliseconds / one_day;
   var months = Math.floor(days / 30);
+  return months;
+}
+
+function getDuration(dtStart, dtEnd){
+  var months = getDurationInMonths(dtStart, dtEnd);
   var years = Math.floor(months / 12);
   var remainingMonths = months - (years * 12);
 

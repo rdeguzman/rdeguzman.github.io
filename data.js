@@ -269,27 +269,42 @@ function getData(){
     }
   }
 
-  //console.log(techHash);
-
   return techHash;
+}
+
+function getSortedData(){
+  var data = [];
+  var hashObj = getData();
+
+  var keys = [];
+  for (var key in hashObj) {
+    if (hashObj.hasOwnProperty(key)) {
+      keys.push(key);
+    }
+  }
+
+  keys.sort();
+
+  for(var i in keys){
+    var key = keys[i];
+    var value = hashObj[key];
+
+    var d = {};
+    d.name = key;
+    d.value = value;
+    data.push(d);
+  }
+
+  return data;
 }
 
 function round(value, places) {
     var multiplier = Math.pow(10, places);
-
     return (Math.round(value * multiplier) / multiplier);
 }
 
 function initChart(){
-  var data = [];
-
-  var hashObj = getData();
-  for(var key in hashObj){
-    var d = {};
-    d.name = key;
-    d.value = hashObj[key];
-    data.push(d);
-  }
+  var data = getSortedData();
 
   var width = 500,
       barHeight = 30;
@@ -318,7 +333,7 @@ function initChart(){
       .attr("x", 10)
       .attr("y", barHeight / 2)
       .attr("dy", ".35em")
-      .text(function(d) { return d.name + ":" + d.value; });
+      .text(function(d) { return d.name + " " + d.value + " yrs"; });
 }
 
 $( document ).ready(function() {

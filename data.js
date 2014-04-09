@@ -20,7 +20,7 @@ var geojson = [
       "title": "Software Developer",
       "company": "Datalink Technologies Pty Ltd",
       "description": "Datalink delivers nation-wide fleet management and GPS tracking to the transport industry.",
-      "technology": ["android","apache","ci","freebsd","java","javascript","jenkins","jira","geoserver","google maps","mobile","postgres","postgis","rspec","ruby","ruby on rails","web mapping"]
+      "technology": ["android","apache","ci","freebsd","java","javascript","jenkins","jira","geoserver","git","google maps","mobile","postgres","postgis","rspec","ruby","ruby on rails","web mapping"]
     }
   },
   {
@@ -42,7 +42,7 @@ var geojson = [
       "title": "iPhone Developer",
       "company": "PlayUp / Revo Pty Ltd",
       "description": "PlayUp is a mobile-based social network and commercial platform driven by sport.",
-      "technology": ["mobile","objective-c"]
+      "technology": ["mobile","git","jira","objective-c"]
     }
   },
   {
@@ -64,7 +64,7 @@ var geojson = [
       "title": "GIS and Mobile Developer",
       "company": "PelicanCorp Pty Ltd",
       "description": "PelicanCorp support underground asset management for Dial Before You Dig and utility companies.",
-      "technology": ["c#","bing maps","geoserver","google maps","mobile","objective-c","openlayers","oracle spatial","postgres","postgis","web mapping"]
+      "technology": ["c#","bing maps","geoserver","google maps","mobile","objective-c","openlayers","oracle spatial","postgres","postgis","svn","web mapping"]
     }
   },
   {
@@ -86,7 +86,7 @@ var geojson = [
       "title": "Team Lead / Tech Lead",
       "company": "Cybersoft Beijing Information Technology",
       "description": "Cybersoft Beijing provides mobile travel and mapping systems to telecom providers in China during the Beijing 2008 Olympics.",
-      "technology": ["apache","centos","coldfusion","c#","extjs","javascript","gps","lbs","linux","mapinfo","mapserver","mapnik","mobile","mysql","openlayers","oracle spatial","postgres","postgis","ruby","ruby on rails","sms","web mapping"]
+      "technology": ["apache","centos","coldfusion","c#","extjs","javascript","gps","lbs","linux","mapinfo","mapserver","mapnik","mobile","mysql","openlayers","oracle spatial","postgres","postgis","ruby","ruby on rails","sms","svn","web mapping"]
     }
   },
   {
@@ -108,7 +108,7 @@ var geojson = [
       "title": "Systems Admin / Lead Developer",
       "company": "Cybersoft Integrated Geoinformatics Inc - CIGI",
       "description": "Cybersoft GeoInformatics provides GIS data and mapping capabilities to Telecom Providers in the Philippines",
-      "technology": ["apache","centos","coldfusion","java","javascript","gps","kannel","lbs","linux","mapserver","mapinfo","mobile","mysql","openlayers","redhat","sms","web mapping"]
+      "technology": ["apache","centos","coldfusion","java","javascript","gps","kannel","lbs","linux","mapserver","mapinfo","mobile","mysql","openlayers","redhat","sms","svn","web mapping"]
     }
   },
   {

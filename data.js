@@ -8,7 +8,7 @@ var geojson = [
       "coordinates": [145.228883,-37.926672]
     },
     "properties": {
-      "id": 1,
+      "id": 0,
       "marker-color": "#D73C50",
       "marker-size": "large",
       "marker-symbol": "car",
@@ -20,29 +20,8 @@ var geojson = [
       "title": "Software Developer",
       "company": "Datalink Technologies Pty Ltd",
       "description": "Datalink delivers nation-wide fleet management and GPS tracking to the transport industry.",
+      "full_description": "<p>Redesign and redevelop existing web and backend systems.</p> <ul><li>Convert web based mapping and tracking system, Datalink Fleet Management System (DFMS), from PHP + MySQL + OpenLayers into Ruby On Rails + Postgres + Postgis + Google Maps.</li><li>Postgres streaming replication. Server monitoring using munin.</li><li>Integrate C++ backend system, Network Control Management(NCM), with Postgres (NCMPG)</li><li>Implement continuous integration thru Jenkins. TDD using Rspec + Capybara.</li><li>Introduce bug and issue tracking and management thru Jira.</li><li>Wiki documentation using Confluence.</li><li>Created job management and dispatch application in Android, interfacing to BasePlan Enterprise.  Testing using calabash-android.</li></ul>",
       "technology": ["android","apache","ci","freebsd","java","javascript","jenkins","jira","geoserver","git","google maps","mobile","postgres","postgis","rspec","ruby","ruby on rails","web mapping"]
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [144.97652500000004, -37.837833]
-    },
-    "properties": {
-      "id": 2,
-      "marker-color": "#479C8C",
-      "marker-size": "large",
-      "marker-symbol": "america-football",
-      "icon": "pin-l-america-football+479C8C@2x.png",
-      "category": "Experience",
-      "date_to": "07/01/2011",
-      "date_from": "05/01/2011",
-      "location": "Melbourne, Australia",
-      "title": "iPhone Developer",
-      "company": "PlayUp / Revo Pty Ltd",
-      "description": "PlayUp is a mobile-based social network and commercial platform driven by sport.",
-      "technology": ["mobile","git","jira","objective-c"]
     }
   },
   {
@@ -52,7 +31,7 @@ var geojson = [
       "coordinates": [144.987975, -37.806503]
     },
     "properties": {
-      "id": 3,
+      "id": 1,
       "marker-color": "#0A2628",
       "marker-size": "large",
       "marker-symbol": "city",
@@ -64,6 +43,7 @@ var geojson = [
       "title": "GIS and Mobile Developer",
       "company": "PelicanCorp Pty Ltd",
       "description": "PelicanCorp support underground asset management for Dial Before You Dig and utility companies.",
+      "full_description": "<p>Develop proof of concept mobile applications to support underground asset management for Dial Before You Dig.  Sole developer for beforeUDig Mobile (iOS) prototype.</p> <p>Technologies include ObjectiveC, C# and Java, Oracle Spatial, Postgres/Postgis, Mapserver and Geoserver. Integration with Google, Bing Maps and deCarta (Java).</p> <p>The prototype won two (2) awards:</p> <p>1. <em>First (1st) Runner up</em> in <b>Navteq LBS Challenge for APAC</b><br>2. Finalist in the 6th Annual Victorian Spatial Excellence (VSEA) Awards.</p><img width='500' height='231' src='/images/pelican_navteq.jpg'>",
       "technology": ["c#","bing maps","geoserver","google maps","mobile","objective-c","openlayers","oracle spatial","postgres","postgis","svn","web mapping"]
     }
   },
@@ -74,7 +54,7 @@ var geojson = [
       "coordinates": [116.40752599999996, 39.90403]
     },
     "properties": {
-      "id": 4,
+      "id": 2,
       "marker-color": "#6EB4A4",
       "marker-size": "large",
       "marker-symbol": "suitcase",
@@ -85,7 +65,8 @@ var geojson = [
       "location": "Beijing, China",
       "title": "Team Lead / Tech Lead",
       "company": "Cybersoft Beijing Information Technology",
-      "description": "Cybersoft Beijing provides mobile travel and mapping systems to telecom providers in China during the Beijing 2008 Olympics.",
+      "description": "Cybersoft Beijing was involved in providing mobile travel and mapping systems to telecom providers in China during the Beijing 2008 Olympics.",
+      "full_description": "<ul><li>Reports directly to the CEO</li><li>Hands on technical role in managing seven (7) developers and directly involved in systems architecture, development, integration and deployment.</li><li>DevOps management includes network diagrams, server provisioning, installation and management.</li><li>China Travel Project.  Call center interface empowers the multilingual Call Center Agents with integrated Points of Interest and spatial information to assist tourists.  Technologies include Ruby On Rails, ColdFusion, Oracle Spatial, OpenLayers and ExtJS.<br><img width='263' height='173' src='/images/beijing_call_center.jpg'/></li><li>POI Manager PDA runs on GPS sirf star 3 based Windows PocketPC devices (Mio and HP). POI Data from Postgis was exported as XML using ColdFusion.  XML was imported to PDA then binded and presented in a .NET Grid Control.  Used .Net Framework to communicate with GPS communication port and parse GPS NMEA readings.<br><img width='119' height='182' src='/images/beijing_pda.jpg'></li></ul>",
       "technology": ["apache","centos","coldfusion","c#","extjs","javascript","gps","lbs","linux","mapinfo","mapserver","mapnik","mobile","mysql","openlayers","oracle spatial","postgres","postgis","ruby","ruby on rails","sms","svn","web mapping"]
     }
   },
@@ -96,7 +77,7 @@ var geojson = [
       "coordinates": [121.03002500000002, 14.639163]
     },
     "properties": {
-      "id": 5,
+      "id": 3,
       "marker-color": "#98CAB7",
       "marker-size": "large",
       "marker-symbol": "mobilephone",
@@ -108,29 +89,8 @@ var geojson = [
       "title": "Systems Admin / Lead Developer",
       "company": "Cybersoft Integrated Geoinformatics Inc - CIGI",
       "description": "Cybersoft GeoInformatics provides GIS data and mapping capabilities to Telecom Providers in the Philippines",
+      "full_description": "<p>Key Responsibilities includes the following:</p><ul><li>Leads three (3) programmers, mentor and assist other junior staff. Reports directly to COO.</li><li>Responsible for managing the overall technical aspects of the development and maintenance of GIS applications and systems, web based mapping sites and mobile applications.</li><li>Systems Architectures and Construction. From installation, configuration to actual production deployment of GIS application and systems.</li></ul><p>Major Projects:</p><ul><li><b>Vehicle Tracking and Web Mapping.</b> Implemented web mapping using Mapserver, kaMap then OpenLayers.  Created a web-based vehicle tracking and reporting system, which can send and receive SMS requests to vehicles using Kannel, an opensource SMS Gateway.   Technologies include ColdFusion, Java, C, MySQL, MS SQL 2000, XML, and Kannel.</li><li><b>Person Finder</b>. Developed location based mobile value added services for telecom providers in the Philippines (Globe Telecoms and Smart Communications). Technologies used includes: GMLC/LBS, CIMD/SMS, Clustering, ColdFusion, Java, MySQL and Web Services.<br><img width='263' height='173' src='/images/cigi_globe.jpg'/></li></ul>",
       "technology": ["apache","centos","coldfusion","java","javascript","gps","kannel","lbs","linux","mapserver","mapinfo","mobile","mysql","openlayers","redhat","sms","svn","web mapping"]
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [121.058451, 14.581169]
-    },
-    "properties": {
-      "id": 7,
-      "marker-color": "#98CAB7",
-      "marker-size": "large",
-      "marker-symbol": "mobilephone",
-      "icon": "pin-l-mobilephone+98CAB7@2x.png",
-      "category": "Experience",
-      "date_to": "2003/06/01",
-      "date_from": "2003/01/01",
-      "location": "Manila, Philippines",
-      "title": "Tech Support Engineer",
-      "company": "Sykes Asia + Macromedia",
-      "description": "Macromedia outsourced its technical support to a call center in the Philippines (Sykes Asia) ",
-      "technology": ["apache","coldfusion","linux","mysql","redhat"]
     }
   },
   {
@@ -140,18 +100,19 @@ var geojson = [
       "coordinates": [121.033972, 14.642308]
     },
     "properties": {
-      "id": 8,
+      "id": 4,
       "marker-color": "#98CAB7",
       "marker-size": "large",
       "marker-symbol": "mobilephone",
       "icon": "pin-l-mobilephone+98CAB7@2x.png",
       "category": "Experience",
-      "date_to": "2002/12/30",
+      "date_to": "2003/10/30",
       "date_from": "2002/06/01",
       "location": "Manila, Philippines",
       "title": "Coldfusion Developer",
       "company": "KSDI Knowledge Systems Developers Inc - KSDI",
       "description": "KSDI is a five-man travel startup deriving its projects from the Cybersoft Group.",
+      "full_description": "<p>Since the group has a strong background in GIS, good relationships with the telecom providers, they decided to setup a travel portal website.</p> <ul><li>Sole developer of Travel website focusing both on web and mobile (WAP).</li><li>Web development using ColdFusion 4.7 (Allaire/Macromedia at that time).  Technologies include Apache, MySQL and RedHat.</li></ul>",
       "technology": ["apache","coldfusion","linux","mysql","redhat"]
     }
   }
@@ -209,15 +170,15 @@ function createExperiences(){
     var html;
     html  = "<div class='row'>";
     html += "  <div class='col-md-4 text-right'>";
-    html += "    <strong>" + getDuration(ex.date_from, ex.date_to) + "</strong> <br/>";
-    html += "    <small>" + getFormattedDate(ex.date_from, ex.date_to) + "</small> <br/>";
+    html += "    <strong>" + getDuration(ex.date_from, ex.date_to) + "</strong><br/>";
+    html += "    <small>" + getFormattedDate(ex.date_from, ex.date_to) + "</small><br/>";
     html += "    <small>" + ex.location + "</small>";
     html += "  </div>";
     html += "  <div class='col-md-1'>";
     html += "    <img class='img-circle' width='35' height='90' src='/images/" + ex.icon +"'/>";
     html += "  </div>";
     html += "  <div class='col-md-7 experience'>";
-    html += "    <div class='title'><a href='javascript:openPopup(" + ex.id + ");'>" + ex.title + "</a></div>";
+    html += "    <div class='title'><a href='javascript:show(" + ex.id + ");'>" + ex.title + "</a></div>";
     html += "    <div class='company'>" + ex.company + "</div>";
     html += "  </div>";
     html += "</div>";
@@ -238,13 +199,22 @@ function initMap() {
   });
 }
 
-function openPopup(markerId) {
+function show(markerId){
+  showPopup(markerId);
+  showDescription(markerId);
+}
+
+function showPopup(markerId) {
   featureLayer.eachLayer(function(marker) {
     if (marker.feature.properties.id === markerId) {
       marker.openPopup();
       //map.panTo(marker.getLatLng());
     }
   });
+}
+
+function showDescription(markerId) {
+  $("#description").html(geojson[markerId].properties.full_description);
 }
 
 function getData(){

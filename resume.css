@@ -32,6 +32,10 @@
   height: 300px;
 }
 
+#description {
+  padding: 10px;
+}
+
 .chart rect {
   fill: steelblue;
 }

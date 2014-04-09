@@ -310,4 +310,5 @@ $( document ).ready(function() {
   createExperiences();
   initMap();
   initChart();
+  show(0);
 });

@@ -234,7 +234,14 @@ function getShortDate(dt){
 function getFormattedDate(dtStart, dtEnd){
   var dateStart = new Date(dtStart);
   var dateEnd = (dtEnd == 'now') ? new Date() : new Date(dtEnd);
-  return getShortDate(dateStart) + " - " + getShortDate(dateEnd);
+  var finalString = "";
+
+  if( getShortDate(dateStart) != getShortDate(dateEnd) )
+    finalString = getShortDate(dateStart) + " - " + getShortDate(dateEnd);
+  else
+    finalString = "<strong>" + getShortDate(dateStart) + "</strong>";
+
+  return finalString;
 }
 
 function getDurationInMonths(dtStart, dtEnd){

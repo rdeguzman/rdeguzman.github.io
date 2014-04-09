@@ -301,7 +301,11 @@ function createEducation(){
     var html;
     html  = "<div class='row'>";
     html += "  <div class='col-md-3 text-right'>";
-    html += "    <strong>" + getDuration(ex.date_from, ex.date_to) + "</strong><br/>";
+
+    if(getDuration(ex.date_from, ex.date_to) != ""){
+      html += "    <strong>" + getDuration(ex.date_from, ex.date_to) + "</strong><br/>";
+    }
+
     html += "    <small>" + getFormattedDate(ex.date_from, ex.date_to) + "</small><br/>";
     html += "    <small>" + ex.location + "</small>";
     html += "  </div>";

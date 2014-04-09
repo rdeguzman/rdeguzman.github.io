@@ -109,7 +109,7 @@ var geojson = [
       "date_to": "2003/10/30",
       "date_from": "2002/06/01",
       "location": "Manila, Philippines",
-      "title": "Coldfusion Developer",
+      "title": "Junior Developer",
       "company": "KSDI Knowledge Systems Developers Inc - KSDI",
       "description": "KSDI is a five-man travel startup deriving its projects from the Cybersoft Group.",
       "full_description": "<p>Since the group has a strong background in GIS, good relationships with the telecom providers, they decided to setup a travel portal website.</p> <ul><li>Sole developer of Travel website focusing both on web and mobile (WAP).</li><li>Web development using ColdFusion 4.7 (Allaire/Macromedia at that time).  Technologies include Apache, MySQL and RedHat.</li></ul>",

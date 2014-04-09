@@ -127,17 +127,101 @@ var education = [
     },
     "properties": {
       "id": 0,
-      "marker-color": "#D73C50",
+      "marker-color": "#58ACFA",
       "marker-size": "large",
-      "marker-symbol": "car",
+      "marker-symbol": "college",
       "icon": "pin-l-car+D73C50@2x.png",
-      "category": "Experience",
+      "category": "Education",
       "date_to": "05/01/2004",
       "date_from": "10/27/2003",
       "location": "Melbourne, Australia",
-      "title": "Graduate Diploma of Information Systems Management",
+      "title": "Grad Diploma of Information Systems Mgmt",
       "company": "Central Queensland University (Melbourne Campus)",
-      "description": "Graduate Diploma of Information Systems Management <br> Central Queensland University (Melbourne Campus)"
+      "description": "Central Queensland University (Melbourne Campus)"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [0,0]
+    },
+    "properties": {
+      "id": 0,
+      "marker-color": "#58ACFA",
+      "marker-size": "large",
+      "marker-symbol": "college",
+      "icon": "pin-l-car+D73C50@2x.png",
+      "category": "Certificate",
+      "date_to": "05/01/2004",
+      "date_from": "05/01/2004",
+      "location": "Melbourne, Australia",
+      "title": "Advanced ColdFusion MX Developer",
+      "company": "Macromedia (now Adobe)",
+      "description": "Macromedia (now Adobe)"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [0,0]
+    },
+    "properties": {
+      "id": 0,
+      "marker-color": "#58ACFA",
+      "marker-size": "large",
+      "marker-symbol": "college",
+      "icon": "pin-l-car+D73C50@2x.png",
+      "category": "Education",
+      "date_to": "02/01/2004",
+      "date_from": "02/01/2004",
+      "location": "Melbourne, Australia",
+      "title": "Institute of Surveyors, Australia (ISA)",
+      "company": "Positive Assessment as relevant qualifications are being equivalent to an Australian Bachelor Degree Qualification",
+      "description": "Relevant Qualifications are being equivalent to an Australian Bachelor Degree Qualification"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [0,0]
+    },
+    "properties": {
+      "id": 0,
+      "marker-color": "#58ACFA",
+      "marker-size": "large",
+      "marker-symbol": "college",
+      "icon": "pin-l-car+D73C50@2x.png",
+      "category": "Education",
+      "date_to": "06/01/2001",
+      "date_from": "06/01/2000",
+      "location": "Manila, Philippines",
+      "title": "M.Sc. in Remote Sensing (Postgrad units only)",
+      "company": "University of the Philippines, Diliman",
+      "description": "College of Engineering, University of the Philippines, Diliman"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [0,0]
+    },
+    "properties": {
+      "id": 0,
+      "marker-color": "#58ACFA",
+      "marker-size": "large",
+      "marker-symbol": "college",
+      "icon": "pin-l-car+D73C50@2x.png",
+      "category": "Education",
+      "date_to": "03/01/2000",
+      "date_from": "06/01/1994",
+      "location": "Manila, Philippines",
+      "title": "B. Sc. in Geodetic Engineering",
+      "company": "University of the Philippines, Diliman",
+      "description": "College of Engineering, University of the Philippines, Diliman"
     }
   }
 ];
@@ -216,21 +300,21 @@ function createEducation(){
     var ex = education[i].properties;
     var html;
     html  = "<div class='row'>";
-    html += "  <div class='col-md-4 text-right'>";
+    html += "  <div class='col-md-3 text-right'>";
     html += "    <strong>" + getDuration(ex.date_from, ex.date_to) + "</strong><br/>";
     html += "    <small>" + getFormattedDate(ex.date_from, ex.date_to) + "</small><br/>";
     html += "    <small>" + ex.location + "</small>";
     html += "  </div>";
-    html += "  <div class='col-md-8 experience'>";
+    html += "  <div class='col-md-9 experience'>";
     html += "    <div class='title'>" + ex.title + "</div>";
     html += "    <div class='company'>" + ex.company + "</div>";
     html += "  </div>";
     html += "</div>";
+    html += "<br/>";
 
     $("#education").append(html);
   }
 }
-
 
 function initMap() {
   map = L.mapbox.map('map-canvas', 'rupert.hnb5c3da');

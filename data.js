@@ -118,6 +118,30 @@ var geojson = [
   }
 ];
 
+var education = [
+  {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [0,0]
+    },
+    "properties": {
+      "id": 0,
+      "marker-color": "#D73C50",
+      "marker-size": "large",
+      "marker-symbol": "car",
+      "icon": "pin-l-car+D73C50@2x.png",
+      "category": "Experience",
+      "date_to": "05/01/2004",
+      "date_from": "10/27/2003",
+      "location": "Melbourne, Australia",
+      "title": "Graduate Diploma of Information Systems Management",
+      "company": "Central Queensland University (Melbourne Campus)",
+      "description": "Graduate Diploma of Information Systems Management <br> Central Queensland University (Melbourne Campus)"
+    }
+  }
+];
+
 function getShortDate(dt){
   var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec" ];
   return monthNames[dt.getMonth()] + " " + dt.getFullYear();
@@ -186,6 +210,27 @@ function createExperiences(){
     $("#experiences").append(html);
   }
 }
+
+function createEducation(){
+  for(var i in education) {
+    var ex = education[i].properties;
+    var html;
+    html  = "<div class='row'>";
+    html += "  <div class='col-md-4 text-right'>";
+    html += "    <strong>" + getDuration(ex.date_from, ex.date_to) + "</strong><br/>";
+    html += "    <small>" + getFormattedDate(ex.date_from, ex.date_to) + "</small><br/>";
+    html += "    <small>" + ex.location + "</small>";
+    html += "  </div>";
+    html += "  <div class='col-md-8 experience'>";
+    html += "    <div class='title'>" + ex.title + "</div>";
+    html += "    <div class='company'>" + ex.company + "</div>";
+    html += "  </div>";
+    html += "</div>";
+
+    $("#education").append(html);
+  }
+}
+
 
 function initMap() {
   map = L.mapbox.map('map-canvas', 'rupert.hnb5c3da');
@@ -308,6 +353,7 @@ function initChart(){
 
 $( document ).ready(function() {
   createExperiences();
+  createEducation();
   initMap();
   initChart();
   show(0);

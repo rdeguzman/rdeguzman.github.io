@@ -1,1 +1,11 @@
-.idea
+#Mac Stuff
+.DS_Store
+
+# Jekyll
+_site
+.sass-cache
+
+node_modules
+
+.ruby-gemset
+.ruby-version

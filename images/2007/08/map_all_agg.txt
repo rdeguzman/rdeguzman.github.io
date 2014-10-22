@@ -1,0 +1,2587 @@
+#TODO: 
+# 1. Need to add rd_class 260
+#
+#
+
+NAME WMS_server
+DEBUG ON
+STATUS ON
+SIZE 800 600
+#SYMBOLSET "symbols.sym"
+FONTSET "fonts/fonts-lite.list"
+EXTENT 116.1737 39.8211 116.5640 40.0799
+
+UNITS METERS
+IMAGECOLOR 232 227 211
+
+OUTPUTFORMAT
+    NAME 'AGG' DRIVER AGG/PNG IMAGEMODE RGB
+END 
+
+WEB
+	IMAGEPATH "/usr/local/apache2/htdocs/tmp/"
+	IMAGEURL  "/tmp/"
+	TEMPLATE "base.html"
+	METADATA
+    	"wms_title"            "cybersoftbj"
+    	"wms_onlineresource"   "http://127.0.0.1/cgi-bin/mapserv?map=/home/map/beijing/new/map_base.map"
+    	"wms_srs"              "EPSG:4326"
+  	END
+	LOG "/var/log/apache2/error.log"
+END
+
+PROJECTION
+	"init=epsg:4326"
+END
+
+#SYMBOLS
+SYMBOL 
+  NAME "dashed"
+  TYPE ELLIPSE
+  POINTS 1 2 END
+  STYLE 2 2 2 2 END
+END
+SYMBOL 
+  NAME "circle" 
+  TYPE ellipse 
+  FILLED TRUE 
+  POINTS 
+    1 1
+  END
+END
+
+#district poly- BEGIN
+LAYER
+        NAME "district"
+        STATUS DEFAULT
+		GROUP "district" 
+
+        CONNECTIONTYPE OGR
+        CONNECTION "mapinfo/district_boundary.TAB"
+        TYPE POLYGON 
+		#TRANSPARENCY ALPHA
+		
+		#This would follow mapinfo styles. Uncomment these if you want custom colors. 
+		#STYLEITEM "AUTO"
+
+		CLASS
+			STYLE	
+				COLOR 232 227 211
+			END
+		END
+END
+
+#water poly- BEGIN
+LAYER
+        NAME "water_200k"
+        STATUS DEFAULT
+		GROUP "water"
+
+		DATA shape/water_bodies
+
+        TYPE POLYGON 
+		
+		CLASS
+			MAXSCALE 500000
+			MINSCALE 400000
+			EXPRESSION ([SHAPEAREA] > 300000)
+			STYLE	
+				COLOR 155 177 205
+			END
+  		END 
+		CLASS
+			MAXSCALE 400000
+			MINSCALE 200000
+			EXPRESSION ([SHAPEAREA] > 150000)
+			STYLE	
+				COLOR 155 177 205
+			END
+  		END 
+		CLASS
+			MAXSCALE 200000
+			STYLE	
+				COLOR 155 177 205
+			END
+  		END 
+END
+
+#greens poly- BEGIN
+LAYER
+        NAME "greens_200k"
+        STATUS DEFAULT
+		GROUP "greens"
+
+		DATA shape/greenbelt
+
+        TYPE POLYGON 
+		
+		CLASS
+			MINSCALE 200000
+			EXPRESSION ([SHAPEAREA] > 200000)
+			STYLE	
+				COLOR 168 203 150
+			END
+  		END 
+		CLASS
+			MAXSCALE 200000
+			MINSCALE 100000
+			EXPRESSION ([SHAPEAREA] > 150000)
+			STYLE	
+				COLOR 168 203 150
+			END
+  		END 
+		CLASS
+			MAXSCALE 100000
+			MINSCALE  50000
+			EXPRESSION ([SHAPEAREA] > 10000)
+			STYLE	
+				COLOR 168 203 150
+			END
+  		END 
+		CLASS
+			MAXSCALE 50000
+			STYLE	
+				COLOR 168 203 150
+			END
+  		END 
+END
+
+#Roads Start here
+#Expressways - 400
+
+#ZOOMLEVELS - SCALES
+# 8 -   1690
+# 7 -   3379
+# 6 -   6759
+# 5 -  14000
+# 4 -  27000
+# 3 -  54000
+# 2 - 108000
+# 1 - 216000
+# 0 - 433000
+
+# BOUNDARY LINES START HERE
+#
+# UNKNOWN ROADS
+LAYER
+        NAME "roads_140"
+		GROUP "roads"
+        STATUS DEFAULT
+        TYPE LINE
+
+		DATA "shape/roads"
+
+        CLASSITEM "RD_CLASS"
+		MAXSCALE 500000
+
+		#ZOOMLEVEL 8 - 1.7k
+        CLASS
+        	MAXSCALE  3000
+        	MINSCALE  1500
+			EXPRESSION "0"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH  7
+			END
+        END
+
+		#ZOOMLEVEL 7 - 3.4k
+        CLASS
+        	MAXSCALE  5000
+        	MINSCALE  3300
+			EXPRESSION "0"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH  5
+			END
+        END
+
+		#ZOOMLEVEL 6 - 6.7k
+        CLASS
+        	MAXSCALE  13000
+        	MINSCALE   5000
+			EXPRESSION "0"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 3
+			END
+        END
+END
+
+
+# COMMUNITY ROADS WITHOUT NAME- 140
+LAYER
+        NAME "roads_140"
+		GROUP "roads"
+        STATUS DEFAULT
+        TYPE LINE
+
+		DATA "shape/roads"
+
+        CLASSITEM "RD_CLASS"
+		MAXSCALE 500000
+
+		#ZOOMLEVEL 8 - 1.7k
+        CLASS
+        	MAXSCALE  3000
+        	MINSCALE  1500
+			EXPRESSION "140"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH  7
+			END
+        END
+
+		#ZOOMLEVEL 7 - 3.4k
+        CLASS
+        	MAXSCALE  5000
+        	MINSCALE  3300
+			EXPRESSION "140"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH  5
+			END
+        END
+
+		#ZOOMLEVEL 6 - 6.7k
+        CLASS
+        	MAXSCALE  13000
+        	MINSCALE   5000
+			EXPRESSION "140"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 3
+			END
+        END
+END
+
+# COMMUNITY ROADS WITH NAME- 141
+LAYER
+        NAME "roads_141"
+		GROUP "roads"
+        STATUS DEFAULT
+        TYPE LINE
+
+		DATA "shape/roads"
+
+        CLASSITEM "RD_CLASS"
+		MAXSCALE 500000
+
+		#ZOOMLEVEL 8 - 1.7k
+        CLASS
+        	MAXSCALE  3000
+        	MINSCALE  1500
+			EXPRESSION "141"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH  7
+			END
+        END
+
+		#ZOOMLEVEL 7 - 3.4k
+        CLASS
+        	MAXSCALE  5000
+        	MINSCALE  3300
+			EXPRESSION "141"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH  5
+			END
+        END
+
+		#ZOOMLEVEL 6 - 6.7k
+        CLASS
+        	MAXSCALE  13000
+        	MINSCALE   5000
+			EXPRESSION "141"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 3
+			END
+        END
+END
+
+# MINOR ROADS - 150
+LAYER
+        NAME "roads_150"
+		GROUP "roads"
+        STATUS DEFAULT
+        TYPE LINE
+
+		DATA "shape/roads"
+
+        CLASSITEM "RD_CLASS"
+		MAXSCALE 500000
+
+		#ZOOMLEVEL 8 - 1.7k
+        CLASS
+        	MAXSCALE  3000
+        	MINSCALE  1500
+			EXPRESSION "150"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 16 
+			END
+        END
+
+		#ZOOMLEVEL 7 - 3.4k
+        CLASS
+        	MAXSCALE  5000
+        	MINSCALE  3300
+			EXPRESSION "150"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 10 
+			END
+        END
+
+		#ZOOMLEVEL 6 - 6.7k
+        CLASS
+        	MAXSCALE  13000
+        	MINSCALE   5000
+			EXPRESSION "150"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH  6
+			END
+        END
+
+		#ZOOMLEVEL 5 - 14k
+        CLASS
+        	MAXSCALE  25000
+        	MINSCALE  13000
+			EXPRESSION "150"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH  5
+			END
+        END
+
+		#ZOOMLEVEL 4 - 27k
+        CLASS
+        	MAXSCALE  50000
+        	MINSCALE  25000
+			EXPRESSION "150"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH  4
+			END
+        END
+END
+
+# SECONDARY ROADS - 160
+LAYER
+        NAME "roads_160"
+		GROUP "roads"
+        STATUS DEFAULT
+        TYPE LINE
+
+		DATA "shape/roads"
+
+        CLASSITEM "RD_CLASS"
+		MAXSCALE 500000
+
+		#ZOOMLEVEL 8 - 1.7k
+        CLASS
+        	MAXSCALE  3000
+        	MINSCALE  1500
+			EXPRESSION "160"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 26
+			END
+        END
+
+		#ZOOMLEVEL 7 - 3.4k
+        CLASS
+        	MAXSCALE  5000
+        	MINSCALE  3300
+			EXPRESSION "160"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 13 
+			END
+        END
+
+		#ZOOMLEVEL 6 - 6.7k
+        CLASS
+        	MAXSCALE  13000
+        	MINSCALE   5000
+			EXPRESSION "160"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 10 
+			END
+        END
+
+		#ZOOMLEVEL 5 - 14k
+        CLASS
+        	MAXSCALE  25000
+        	MINSCALE  13000
+			EXPRESSION "160"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH  8
+			END
+        END
+END
+
+# MAIN ROADS - 170
+LAYER
+        NAME "roads_170"
+		GROUP "roads"
+        STATUS DEFAULT
+        TYPE LINE
+
+		DATA "shape/roads"
+
+        CLASSITEM "RD_CLASS"
+		MAXSCALE 500000
+
+		#ZOOMLEVEL 8 - 1.7k
+        CLASS
+        	MAXSCALE  3000
+        	MINSCALE  1500
+			EXPRESSION "170"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 26
+			END
+        END
+
+		#ZOOMLEVEL 7 - 3.4k
+        CLASS
+        	MAXSCALE  5000
+        	MINSCALE  3300
+			EXPRESSION "170"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 13 
+			END
+        END
+
+		#ZOOMLEVEL 6 - 6.7k
+        CLASS
+        	MAXSCALE  13000
+        	MINSCALE   5000
+			EXPRESSION "170"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 11 
+			END
+        END
+
+		#ZOOMLEVEL 5 - 14k
+        CLASS
+        	MAXSCALE  25000
+        	MINSCALE  13000
+			EXPRESSION "170"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH  9 
+			END
+        END
+END
+
+# MAIN ROADS - 270
+LAYER
+        NAME "roads_270"
+		GROUP "roads"
+        STATUS DEFAULT
+        TYPE LINE
+
+		DATA "shape/roads"
+
+        CLASSITEM "RD_CLASS"
+		MAXSCALE 500000
+
+		#ZOOMLEVEL 8 - 1.7k
+        CLASS
+        	MAXSCALE  3000
+        	MINSCALE  1500
+			EXPRESSION "270"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 26
+			END
+        END
+
+		#ZOOMLEVEL 7 - 3.4k
+        CLASS
+        	MAXSCALE  5000
+        	MINSCALE  3300
+			EXPRESSION "270"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 13 
+			END
+        END
+
+		#ZOOMLEVEL 6 - 6.7k
+        CLASS
+        	MAXSCALE  13000
+        	MINSCALE   5000
+			EXPRESSION "270"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 11 
+			END
+        END
+
+		#ZOOMLEVEL 5 - 14k
+        CLASS
+        	MAXSCALE  25000
+        	MINSCALE  13000
+			EXPRESSION "270"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH  9 
+			END
+        END
+
+		#ZOOMLEVEL 4 - 27k
+        CLASS
+        	MAXSCALE  50000
+        	MINSCALE  25000
+			EXPRESSION "270"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH  6
+			END
+        END
+END
+
+
+# MAJOR ROADS - 180
+LAYER
+        NAME "roads_180"
+		GROUP "roads"
+        STATUS DEFAULT
+        TYPE LINE
+
+		DATA "shape/roads"
+
+        CLASSITEM "RD_CLASS"
+		MAXSCALE 500000
+
+		#ZOOMLEVEL 8 - 1.7k
+        CLASS
+        	MAXSCALE  3000
+        	MINSCALE  1500
+			EXPRESSION "180"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 30
+			END
+        END
+
+		#ZOOMLEVEL 7 - 3.4k
+        CLASS
+        	MAXSCALE  5000
+        	MINSCALE  3300
+			EXPRESSION "180"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 13 
+			END
+        END
+
+		#ZOOMLEVEL 6 - 6.7k
+        CLASS
+        	MAXSCALE  13000
+        	MINSCALE   5000
+			EXPRESSION "180"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 12 
+			END
+        END
+
+		#ZOOMLEVEL 5 - 14k
+        CLASS
+        	MAXSCALE  25000
+        	MINSCALE  13000
+			EXPRESSION "180"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 10 
+			END
+        END
+
+		#ZOOMLEVEL 4 - 27k
+        CLASS
+        	MAXSCALE  50000
+        	MINSCALE  25000
+			EXPRESSION "180"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH  9
+			END
+        END
+END
+
+# CLASS-1 ROADS - 280
+LAYER
+        NAME "roads_280"
+		GROUP "roads"
+        STATUS DEFAULT
+        TYPE LINE
+
+		DATA "shape/roads"
+
+        CLASSITEM "RD_CLASS"
+		MAXSCALE 500000
+
+		#ZOOMLEVEL 8 - 1.7k
+        CLASS
+        	MAXSCALE  3000
+        	MINSCALE  1500
+			EXPRESSION "280"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 30
+			END
+        END
+
+		#ZOOMLEVEL 7 - 3.4k
+        CLASS
+        	MAXSCALE  5000
+        	MINSCALE  3300
+			EXPRESSION "280"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 13 
+			END
+        END
+
+		#ZOOMLEVEL 6 - 6.7k
+        CLASS
+        	MAXSCALE  13000
+        	MINSCALE   5000
+			EXPRESSION "280"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 12 
+			END
+        END
+
+		#ZOOMLEVEL 5 - 14k
+        CLASS
+        	MAXSCALE  25000
+        	MINSCALE  13000
+			EXPRESSION "280"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 11 
+			END
+        END
+
+		#ZOOMLEVEL 4 - 27k
+        CLASS
+        	MAXSCALE  50000
+        	MINSCALE  25000
+			EXPRESSION "280"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 10 
+			END
+        END
+END
+
+# EXPRESSWAY - 400
+LAYER
+        NAME "roads_400"
+		GROUP "roads"
+        STATUS DEFAULT
+        TYPE LINE
+
+		DATA "shape/roads"
+
+        CLASSITEM "RD_CLASS"
+		MAXSCALE 500000
+
+		#ZOOMLEVEL 8 - 1.7k
+        CLASS
+        	MAXSCALE  3000
+        	MINSCALE  1500
+			EXPRESSION "400"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 30
+			END
+        END
+
+		#ZOOMLEVEL 7 - 3.4k
+        CLASS
+        	MAXSCALE  5000
+        	MINSCALE  3300
+			EXPRESSION "400"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 13 
+			END
+        END
+
+		#ZOOMLEVEL 6 - 6.7k
+        CLASS
+        	MAXSCALE  13000
+        	MINSCALE   5000
+			EXPRESSION "400"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 12 
+			END
+        END
+
+		#ZOOMLEVEL 5 - 14k
+        CLASS
+        	MAXSCALE  25000
+        	MINSCALE  13000
+			EXPRESSION "400"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 11 
+			END
+        END
+
+		#ZOOMLEVEL 4 - 27k
+        CLASS
+        	MAXSCALE  50000
+        	MINSCALE  25000
+			EXPRESSION "400"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 10 
+			END
+        END
+
+END
+# BOUNDARY LINES ENDS HERE
+
+# ROAD LINES START HERE
+#
+# UNKNOWN ROADS
+LAYER
+        NAME "roads_140"
+		GROUP "roads"
+        STATUS DEFAULT
+        TYPE LINE
+
+		DATA "shape/roads"
+
+        CLASSITEM "RD_CLASS"
+		MAXSCALE 500000
+
+		#ZOOMLEVEL 8 - 1.7k
+        CLASS
+        	MAXSCALE  3000
+        	MINSCALE  1500
+			EXPRESSION "0"
+			STYLE
+				COLOR 255 255 255
+				WIDTH  6
+			END
+        END
+
+		#ZOOMLEVEL 7 - 3.4k
+        CLASS
+        	MAXSCALE  5000
+        	MINSCALE  3300
+			EXPRESSION "0"
+			STYLE
+				COLOR 255 255 255
+				WIDTH  3
+			END
+        END
+
+		#ZOOMLEVEL 6 - 6.7k
+        CLASS
+        	MAXSCALE  13000
+        	MINSCALE   5000
+			EXPRESSION "0"
+			STYLE
+				COLOR 255 255 255
+				WIDTH 2
+			END
+        END
+
+		#ZOOMLEVEL 5 - 14k
+        CLASS
+        	MAXSCALE  25000
+        	MINSCALE  13000
+			EXPRESSION "0"
+			STYLE
+				COLOR 255 255 255
+				WIDTH  2
+			END
+        END
+
+		#ZOOMLEVEL 4 & 3 - 27k & 54k
+        CLASS
+        	MAXSCALE  55000
+        	MINSCALE  25000
+			EXPRESSION "0"
+			STYLE
+				COLOR 255 255 255
+				WIDTH  1
+			END
+        END
+END
+
+
+# COMMUNITY ROADS WITHOUT NAME- 140
+LAYER
+        NAME "roads_140"
+		GROUP "roads"
+        STATUS DEFAULT
+        TYPE LINE
+
+		DATA "shape/roads"
+
+        CLASSITEM "RD_CLASS"
+		MAXSCALE 500000
+
+		#ZOOMLEVEL 8 - 1.7k
+        CLASS
+        	MAXSCALE  3000
+        	MINSCALE  1500
+			EXPRESSION "140"
+			STYLE
+				COLOR 255 255 255
+				WIDTH  6
+			END
+        END
+
+		#ZOOMLEVEL 7 - 3.4k
+        CLASS
+        	MAXSCALE  5000
+        	MINSCALE  3300
+			EXPRESSION "140"
+			STYLE
+				COLOR 255 255 255
+				WIDTH  3
+			END
+        END
+
+		#ZOOMLEVEL 6 - 6.7k
+        CLASS
+        	MAXSCALE  13000
+        	MINSCALE   5000
+			EXPRESSION "140"
+			STYLE
+				COLOR 255 255 255
+				WIDTH 2
+			END
+        END
+
+		#ZOOMLEVEL 5 - 14k
+        CLASS
+        	MAXSCALE  25000
+        	MINSCALE  13000
+			EXPRESSION "140"
+			STYLE
+				COLOR 255 255 255
+				WIDTH  2
+			END
+        END
+
+		#ZOOMLEVEL 4 & 3 - 27k and 54k
+        CLASS
+        	MAXSCALE  55000
+        	MINSCALE  25000
+			EXPRESSION "140"
+			STYLE
+				COLOR 255 255 255
+				WIDTH  1
+			END
+        END
+END
+
+# COMMUNITY ROADS WITH NAME- 141
+LAYER
+        NAME "roads_141"
+		GROUP "roads"
+        STATUS DEFAULT
+        TYPE LINE
+
+		DATA "shape/roads"
+
+        CLASSITEM "RD_CLASS"
+		MAXSCALE 500000
+
+		#ZOOMLEVEL 8 - 1.7k
+        CLASS
+        	MAXSCALE  3000
+        	MINSCALE  1500
+			EXPRESSION "141"
+			STYLE
+				COLOR 255 255 255
+				WIDTH  6
+			END
+        END
+
+		#ZOOMLEVEL 7 - 3.4k
+        CLASS
+        	MAXSCALE  5000
+        	MINSCALE  3300
+			EXPRESSION "141"
+			STYLE
+				COLOR 255 255 255
+				WIDTH  3
+			END
+        END
+
+		#ZOOMLEVEL 6 - 6.7k
+        CLASS
+        	MAXSCALE  13000
+        	MINSCALE   5000
+			EXPRESSION "141"
+			STYLE
+				COLOR 255 255 255
+				WIDTH 2
+			END
+        END
+
+		#ZOOMLEVEL 5 - 14k
+        CLASS
+        	MAXSCALE  25000
+        	MINSCALE  13000
+			EXPRESSION "141"
+			STYLE
+				COLOR 255 255 255
+				WIDTH  2
+			END
+        END
+
+		#ZOOMLEVEL 4 - 27k & 54k
+        CLASS
+        	MAXSCALE  55000
+        	MINSCALE  25000
+			EXPRESSION "141"
+			STYLE
+				COLOR 255 255 255
+				WIDTH  1
+			END
+        END
+END
+
+# MINOR ROADS - 150
+LAYER
+        NAME "roads_150"
+		GROUP "roads"
+        STATUS DEFAULT
+        TYPE LINE
+
+		DATA "shape/roads"
+
+        CLASSITEM "RD_CLASS"
+		MAXSCALE 500000
+
+		#ZOOMLEVEL 8 - 1.7k
+        CLASS
+        	MAXSCALE  3000
+        	MINSCALE  1500
+			EXPRESSION "150"
+			STYLE
+				COLOR 247 247 180
+				WIDTH 15 
+			END
+        END
+
+		#ZOOMLEVEL 7 - 3.4k
+        CLASS
+        	MAXSCALE  5000
+        	MINSCALE  3300
+			EXPRESSION "150"
+			STYLE
+				COLOR 247 247 180
+				WIDTH  8
+			END
+        END
+
+		#ZOOMLEVEL 6 - 6.7k
+        CLASS
+        	MAXSCALE  13000
+        	MINSCALE   5000
+			EXPRESSION "150"
+			STYLE
+				COLOR 247 247 180
+				WIDTH  5
+			END
+        END
+
+		#ZOOMLEVEL 5 - 14k
+        CLASS
+        	MAXSCALE  25000
+        	MINSCALE  13000
+			EXPRESSION "150"
+			STYLE
+				COLOR 247 247 180
+				WIDTH  4
+			END
+        END
+
+		#ZOOMLEVEL 4 - 27k
+        CLASS
+        	MAXSCALE  50000
+        	MINSCALE  25000
+			EXPRESSION "150"
+			STYLE
+				COLOR 247 247 180
+				WIDTH  3
+			END
+        END
+
+		#ZOOMLEVEL 3 - 54k
+        CLASS
+        	MAXSCALE 100000
+        	MINSCALE  50000
+			EXPRESSION "150"
+			STYLE
+				COLOR 247 247 180
+				WIDTH 2
+			END
+        END
+END
+# ROAD LINES END HERE
+
+# BOUNDARY ROAD LINES CONTINUE HERE FOR 160 170 270
+# SECONDARY ROADS - 160
+LAYER
+        NAME "roads_boundary_160_170_270"
+		GROUP "roads"
+        STATUS DEFAULT
+        TYPE LINE
+
+		DATA "shape/roads"
+
+        CLASSITEM "RD_CLASS"
+		MAXSCALE 500000
+
+		#ZOOMLEVEL 4 - 27k
+        CLASS
+        	MAXSCALE  50000
+        	MINSCALE  25000
+			EXPRESSION "160"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH  6
+			END
+        END
+
+		#ZOOMLEVEL 3 - 54k
+        CLASS
+        	MAXSCALE 100000
+        	MINSCALE  50000
+			EXPRESSION "160"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 4
+			END
+        END
+
+		#ZOOMLEVEL 4 - 27k
+        CLASS
+        	MAXSCALE  50000
+        	MINSCALE  25000
+			EXPRESSION "170"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH  6
+			END
+        END
+
+		#ZOOMLEVEL 3 - 54k
+        CLASS
+        	MAXSCALE 100000
+        	MINSCALE  50000
+			EXPRESSION "170"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 4
+			END
+        END
+
+		#ZOOMLEVEL 4 - 27k
+        CLASS
+        	MAXSCALE  50000
+        	MINSCALE  25000
+			EXPRESSION "270"
+			STYLE
+				COLOR 255 255 115
+				WIDTH  6
+			END
+        END
+
+		#ZOOMLEVEL 3 - 54k
+        CLASS
+        	MAXSCALE 100000
+        	MINSCALE  50000
+			EXPRESSION "270"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 4
+			END
+        END
+END
+# BOUNDARY ROAD LINES END HERE FOR 160 170 270
+
+# ROAD LINES CONTINUE HERE FOR 160 170 270
+# SECONDARY ROADS - 160
+LAYER
+        NAME "roads_160"
+		GROUP "roads"
+        STATUS DEFAULT
+        TYPE LINE
+
+		DATA "shape/roads"
+
+        CLASSITEM "RD_CLASS"
+		MAXSCALE 500000
+
+		#ZOOMLEVEL 8 - 1.7k
+        CLASS
+        	MAXSCALE  3000
+        	MINSCALE  1500
+			EXPRESSION "160"
+			STYLE
+				COLOR 255 255 115
+				WIDTH 25
+			END
+        END
+
+		#ZOOMLEVEL 7 - 3.4k
+        CLASS
+        	MAXSCALE  5000
+        	MINSCALE  3300
+			EXPRESSION "160"
+			STYLE
+				COLOR 255 255 115
+				WIDTH 11 
+			END
+        END
+
+		#ZOOMLEVEL 6 - 6.7k
+        CLASS
+        	MAXSCALE  13000
+        	MINSCALE   5000
+			EXPRESSION "160"
+			STYLE
+				COLOR 255 255 115
+				WIDTH  9
+			END
+        END
+
+		#ZOOMLEVEL 5 - 14k
+        CLASS
+        	MAXSCALE  25000
+        	MINSCALE  13000
+			EXPRESSION "160"
+			STYLE
+				COLOR 255 255 115
+				WIDTH  7
+			END
+        END
+
+		#ZOOMLEVEL 4 - 27k
+        CLASS
+        	MAXSCALE  50000
+        	MINSCALE  25000
+			EXPRESSION "160"
+			STYLE
+				COLOR 255 255 115
+				WIDTH  5
+			END
+        END
+
+		#ZOOMLEVEL 3 - 54k
+        CLASS
+        	MAXSCALE 100000
+        	MINSCALE  50000
+			EXPRESSION "160"
+			STYLE
+				COLOR 255 255 115
+				WIDTH 3
+			END
+        END
+
+		#ZOOMLEVEL 2 - 108k
+        CLASS
+			MAXSCALE 200000
+        	MINSCALE 100000
+			EXPRESSION "160"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 3
+			END
+			STYLE
+				COLOR 255 255 115
+				WIDTH 2
+			END
+        END
+END
+
+# MAIN ROADS - 170
+LAYER
+        NAME "roads_170"
+		GROUP "roads"
+        STATUS DEFAULT
+        TYPE LINE
+
+		DATA "shape/roads"
+
+        CLASSITEM "RD_CLASS"
+		MAXSCALE 500000
+
+		#ZOOMLEVEL 8 - 1.7k
+        CLASS
+        	MAXSCALE  3000
+        	MINSCALE  1500
+			EXPRESSION "170"
+			STYLE
+				COLOR 255 255 115
+				WIDTH 25
+			END
+        END
+
+		#ZOOMLEVEL 7 - 3.4k
+        CLASS
+        	MAXSCALE  5000
+        	MINSCALE  3300
+			EXPRESSION "170"
+			STYLE
+				COLOR 255 255 115
+				WIDTH 11 
+			END
+        END
+
+		#ZOOMLEVEL 6 - 6.7k
+        CLASS
+        	MAXSCALE  13000
+        	MINSCALE   5000
+			EXPRESSION "170"
+			STYLE
+				COLOR 255 255 115
+				WIDTH 10 
+			END
+        END
+
+		#ZOOMLEVEL 5 - 14k
+        CLASS
+        	MAXSCALE  25000
+        	MINSCALE  13000
+			EXPRESSION "170"
+			STYLE
+				COLOR 255 255 115
+				WIDTH  8
+			END
+        END
+
+		#ZOOMLEVEL 4 - 27k
+        CLASS
+        	MAXSCALE  50000
+        	MINSCALE  25000
+			EXPRESSION "170"
+			STYLE
+				COLOR 255 255 115
+				WIDTH  5
+			END
+        END
+
+		#ZOOMLEVEL 3 - 54k
+        CLASS
+        	MAXSCALE 100000
+        	MINSCALE  50000
+			EXPRESSION "170"
+			STYLE
+				COLOR 255 255 115
+				WIDTH 3
+			END
+        END
+
+		#ZOOMLEVEL 2 - 108k
+        CLASS
+			MAXSCALE 200000
+        	MINSCALE 100000
+			EXPRESSION "170"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 3
+			END
+			STYLE
+				COLOR 255 255 115
+				WIDTH 2
+			END
+        END
+
+		#ZOOMLEVEL 1 - 216k
+        CLASS
+        	MAXSCALE 220000
+			MINSCALE 200000
+			EXPRESSION "170"
+			STYLE
+				COLOR 255 255 115
+				WIDTH 1
+			END
+        END
+END
+
+# MAIN ROADS - 270
+LAYER
+        NAME "roads_270"
+		GROUP "roads"
+        STATUS DEFAULT
+        TYPE LINE
+
+		DATA "shape/roads"
+
+        CLASSITEM "RD_CLASS"
+		MAXSCALE 500000
+
+		#ZOOMLEVEL 8 - 1.7k
+        CLASS
+        	MAXSCALE  3000
+        	MINSCALE  1500
+			EXPRESSION "270"
+			STYLE
+				COLOR 255 255 115
+				WIDTH 25
+			END
+        END
+
+		#ZOOMLEVEL 7 - 3.4k
+        CLASS
+        	MAXSCALE  5000
+        	MINSCALE  3300
+			EXPRESSION "270"
+			STYLE
+				COLOR 255 255 115
+				WIDTH 11 
+			END
+        END
+
+		#ZOOMLEVEL 6 - 6.7k
+        CLASS
+        	MAXSCALE  13000
+        	MINSCALE   5000
+			EXPRESSION "270"
+			STYLE
+				COLOR 255 255 115
+				WIDTH 10 
+			END
+        END
+
+		#ZOOMLEVEL 5 - 14k
+        CLASS
+        	MAXSCALE  25000
+        	MINSCALE  13000
+			EXPRESSION "270"
+			STYLE
+				COLOR 255 255 115
+				WIDTH  8
+			END
+        END
+
+		#ZOOMLEVEL 4 - 27k
+        CLASS
+        	MAXSCALE  50000
+        	MINSCALE  25000
+			EXPRESSION "270"
+			STYLE
+				COLOR 255 255 115
+				WIDTH  5
+			END
+        END
+
+		#ZOOMLEVEL 3 - 54k
+        CLASS
+        	MAXSCALE 100000
+        	MINSCALE  50000
+			EXPRESSION "270"
+			STYLE
+				COLOR 255 255 115
+				WIDTH 3
+			END
+        END
+
+		#ZOOMLEVEL 2 - 108k
+        CLASS
+			MAXSCALE 200000
+        	MINSCALE 100000
+			EXPRESSION "270"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 3
+			END
+			STYLE
+				COLOR 255 255 115
+				WIDTH 2
+			END
+        END
+
+		#ZOOMLEVEL 1 - 216k
+        CLASS
+        	MAXSCALE 220000
+			MINSCALE 200000
+			EXPRESSION "270"
+			STYLE
+				COLOR 255 255 115
+				WIDTH 1
+			END
+        END
+END
+# ROAD LINES END HERE FOR 160 170 270
+
+# BOUNDARY LAYER FOR BIG ROADS STARTS HERE- 180 280 400
+LAYER
+        NAME "roads_boundary_big"
+		GROUP "roads"
+        STATUS DEFAULT
+        TYPE LINE
+
+		DATA "shape/roads"
+
+        CLASSITEM "RD_CLASS"
+		MAXSCALE 200000
+
+		#ZOOMLEVEL 3 - 54k
+        CLASS
+        	MAXSCALE 100000
+        	MINSCALE  50000
+			EXPRESSION "180"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 7
+			END
+        END
+
+		#ZOOMLEVEL 2 - 108k
+        CLASS
+			MAXSCALE 200000
+        	MINSCALE 100000
+			EXPRESSION "180"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 6
+			END
+        END
+
+		#ZOOMLEVEL 3 - 54k
+        CLASS
+        	MAXSCALE 100000
+        	MINSCALE  50000
+			EXPRESSION "280"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 8
+			END
+        END
+
+		#ZOOMLEVEL 2 - 108k
+        CLASS
+			MAXSCALE 200000
+        	MINSCALE 100000
+			EXPRESSION "280"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 7
+			END
+        END
+
+		#ZOOMLEVEL 3 - 54k
+        CLASS
+        	MAXSCALE 100000
+        	MINSCALE  50000
+			EXPRESSION "400"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 8
+			END
+        END
+
+		#ZOOMLEVEL 2 - 108k
+        CLASS
+			MAXSCALE 200000
+        	MINSCALE 100000
+			EXPRESSION "400"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 7
+			END
+        END
+
+END
+# BOUNDARY LAYER FOR BIG ROADS ENDS HERE- 180
+
+# ROAD LINES CONTINUE HERE
+#
+# MAJOR ROADS - 180
+LAYER
+        NAME "roads_180"
+		GROUP "roads"
+        STATUS DEFAULT
+        TYPE LINE
+
+		DATA "shape/roads"
+
+        CLASSITEM "RD_CLASS"
+		MAXSCALE 500000
+
+		#ZOOMLEVEL 8 - 1.7k
+        CLASS
+        	MAXSCALE  3000
+        	MINSCALE  1500
+			EXPRESSION "180"
+			STYLE
+				COLOR 249 191 46
+				WIDTH 29
+			END
+        END
+
+		#ZOOMLEVEL 7 - 3.4k
+        CLASS
+        	MAXSCALE  5000
+        	MINSCALE  3300
+			EXPRESSION "180"
+			STYLE
+				COLOR 249 191 46
+				WIDTH 11 
+			END
+        END
+
+		#ZOOMLEVEL 6 - 6.7k
+        CLASS
+        	MAXSCALE  13000
+        	MINSCALE   5000
+			EXPRESSION "180"
+			STYLE
+				COLOR 249 191 46
+				WIDTH 10 
+			END
+        END
+
+		#ZOOMLEVEL 5 - 14k
+        CLASS
+        	MAXSCALE  25000
+        	MINSCALE  13000
+			EXPRESSION "180"
+			STYLE
+				COLOR 249 191 46
+				WIDTH  8
+			END
+        END
+
+		#ZOOMLEVEL 4 - 27k
+        CLASS
+        	MAXSCALE  50000
+        	MINSCALE  25000
+			EXPRESSION "180"
+			STYLE
+				COLOR 249 191 46
+				WIDTH  8
+			END
+        END
+
+		#ZOOMLEVEL 3 - 54k
+        CLASS
+        	MAXSCALE 100000
+        	MINSCALE  50000
+			EXPRESSION "180"
+			STYLE
+				COLOR 249 191 46
+				WIDTH 6
+			END
+        END
+
+		#ZOOMLEVEL 2 - 108k
+        CLASS
+			MAXSCALE 200000
+        	MINSCALE 100000
+			EXPRESSION "180"
+			STYLE
+				COLOR 249 191 46
+				WIDTH 5
+			END
+        END
+
+		#ZOOMLEVEL 1 - 216k
+        CLASS
+        	MAXSCALE 220000
+			MINSCALE 200000
+			EXPRESSION "180"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 4
+			END
+			STYLE
+				COLOR 249 191 46
+				WIDTH 3
+			END
+        END
+		#ZOOMLEVEL 0 - 433K 
+        CLASS
+        	MAXSCALE 440000
+			MINSCALE 220000
+			EXPRESSION "180"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 3
+			END
+			STYLE
+				COLOR 249 191 46
+				WIDTH 2
+			END
+        END
+END
+
+# CLASS-1 ROADS - 280
+LAYER
+        NAME "roads_280"
+		GROUP "roads"
+        STATUS DEFAULT
+        TYPE LINE
+
+		DATA "shape/roads"
+
+        CLASSITEM "RD_CLASS"
+		MAXSCALE 500000
+
+		#ZOOMLEVEL 8 - 1.7k
+        CLASS
+        	MAXSCALE  3000
+        	MINSCALE  1500
+			EXPRESSION "280"
+			STYLE
+				COLOR 255 204 0
+				WIDTH 29
+			END
+        END
+
+		#ZOOMLEVEL 7 - 3.4k
+        CLASS
+        	MAXSCALE  5000
+        	MINSCALE  3300
+			EXPRESSION "280"
+			STYLE
+				COLOR 255 204 0
+				WIDTH 11 
+			END
+        END
+
+		#ZOOMLEVEL 6 - 6.7k
+        CLASS
+        	MAXSCALE  13000
+        	MINSCALE   5000
+			EXPRESSION "280"
+			STYLE
+				COLOR 255 204 0
+				WIDTH 10 
+			END
+        END
+
+		#ZOOMLEVEL 5 - 14k
+        CLASS
+        	MAXSCALE  25000
+        	MINSCALE  13000
+			EXPRESSION "280"
+			STYLE
+				COLOR 255 204 0
+				WIDTH  9
+			END
+        END
+
+		#ZOOMLEVEL 4 - 27k
+        CLASS
+        	MAXSCALE  50000
+        	MINSCALE  25000
+			EXPRESSION "280"
+			STYLE
+				COLOR 255 204 0
+				WIDTH  8
+			END
+        END
+
+		#ZOOMLEVEL 3 - 54k
+        CLASS
+        	MAXSCALE 100000
+        	MINSCALE  50000
+			EXPRESSION "280"
+			STYLE
+				COLOR 255 204 0
+				WIDTH 6
+			END
+        END
+
+		#ZOOMLEVEL 2 - 108k
+        CLASS
+			MAXSCALE 200000
+        	MINSCALE 100000
+			EXPRESSION "280"
+			STYLE
+				COLOR 255 204 0
+				WIDTH 5
+			END
+        END
+
+		#ZOOMLEVEL 1 - 216k
+        CLASS
+        	MAXSCALE 220000
+			MINSCALE 200000
+			EXPRESSION "280"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 6
+			END
+			STYLE
+				COLOR 255 204 0
+				WIDTH 4
+			END
+        END
+
+		#ZOOMLEVEL 0 - 433k 
+        CLASS
+        	MAXSCALE 440000
+			MINSCALE 220000
+			EXPRESSION "280"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 5
+			END
+			STYLE
+				COLOR 255 204 0
+				WIDTH 3
+			END
+        END
+END
+
+# EXPRESSWAY - 400
+LAYER
+        NAME "roads_400"
+		GROUP "roads"
+        STATUS DEFAULT
+        TYPE LINE
+
+		DATA "shape/roads"
+
+        CLASSITEM "RD_CLASS"
+		MAXSCALE 500000
+
+		#ZOOMLEVEL 8 - 1.7k
+        CLASS
+        	MAXSCALE  3000
+        	MINSCALE  1500
+			EXPRESSION "400"
+			STYLE
+				COLOR 255 204 0
+				WIDTH 29
+			END
+        END
+
+		#ZOOMLEVEL 7 - 3.4k
+        CLASS
+        	MAXSCALE  5000
+        	MINSCALE  3300
+			EXPRESSION "400"
+			STYLE
+				COLOR 255 204 0
+				WIDTH 11 
+			END
+        END
+
+		#ZOOMLEVEL 6 - 6.7k
+        CLASS
+        	MAXSCALE  13000
+        	MINSCALE   5000
+			EXPRESSION "400"
+			STYLE
+				COLOR 255 204 0
+				WIDTH 10 
+			END
+        END
+
+		#ZOOMLEVEL 5 - 14k
+        CLASS
+        	MAXSCALE  25000
+        	MINSCALE  13000
+			EXPRESSION "400"
+			STYLE
+				COLOR 255 204 0
+				WIDTH  9
+			END
+        END
+
+		#ZOOMLEVEL 4 - 27k
+        CLASS
+        	MAXSCALE  50000
+        	MINSCALE  25000
+			EXPRESSION "400"
+			STYLE
+				COLOR 255 204 0
+				WIDTH  8
+			END
+        END
+
+		#ZOOMLEVEL 3 - 54k
+        CLASS
+        	MAXSCALE 100000
+        	MINSCALE  50000
+			EXPRESSION "400"
+			STYLE
+				COLOR 255 204 0
+				WIDTH 6
+			END
+        END
+
+		#ZOOMLEVEL 2 - 108k
+        CLASS
+			MAXSCALE 200000
+        	MINSCALE 100000
+			EXPRESSION "400"
+			STYLE
+				COLOR 255 204 0
+				WIDTH 6
+			END
+        END
+
+		#ZOOMLEVEL 1 - 216k
+        CLASS
+        	MAXSCALE 220000
+			MINSCALE 200000
+			EXPRESSION "400"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 6
+			END
+			STYLE
+				COLOR 255 204 0
+				WIDTH 5
+			END
+        END
+
+		#ZOOMLEVEL 0
+        CLASS
+        	MAXSCALE 440000
+			MINSCALE 220000
+			EXPRESSION "400"
+			STYLE
+				COLOR 171 135 26 
+				WIDTH 6
+			END
+			STYLE
+				COLOR 255 204 0
+				WIDTH 4
+			END
+        END
+END
+# ROAD LINES CONTINUE END HERE
+
+#footprint poly- BEGIN
+LAYER
+        NAME "footprint"
+        STATUS DEFAULT
+		GROUP "footprint" 
+
+        CONNECTIONTYPE OGR
+        CONNECTION "mapinfo/footprint.TAB"
+        TYPE POLYGON 
+		#TRANSPARENCY ALPHA
+		
+		#This would follow mapinfo styles. Uncomment these if you want custom colors. 
+		#STYLEITEM "AUTO"
+
+        MAXSCALE  5000
+		CLASS
+			STYLE	
+				COLOR 196 191 191
+				OUTLINECOLOR 255 255 255
+			END
+		END
+END
+
+#subway line- BEGIN
+LAYER
+        NAME "subway"
+        STATUS DEFAULT
+		GROUP "subway" 
+
+        CONNECTIONTYPE OGR
+        CONNECTION "mapinfo/subway.TAB"
+        TYPE LINE
+		CLASSITEM "lineID"
+		
+		CLASS
+			MINSCALE 200000
+			EXPRESSION "1"
+    		STYLE
+				width 3
+     			COLOR 255 0 0
+   			END
+  		END 
+		CLASS
+			MINSCALE 200000
+			EXPRESSION "8"
+    		STYLE
+				width 3
+     			COLOR 255 0 255
+   			END
+  		END 
+		CLASS
+			MINSCALE 200000
+			EXPRESSION "2"
+    		STYLE
+				width 3
+     			COLOR 0 0 255
+   			END
+  		END 
+		CLASS
+			MINSCALE 200000
+			EXPRESSION "13"
+    		STYLE
+				width 3
+				COLOR 241 137 16
+   			END
+  		END 
+		CLASS
+			MAXSCALE 200000
+			MINSCALE  10000
+			EXPRESSION "1"
+    		STYLE
+				width 4
+     			COLOR 255 0 0
+   			END
+  		END 
+		CLASS
+			MAXSCALE 200000
+			MINSCALE  10000
+			EXPRESSION "8"
+    		STYLE
+				width 4
+     			COLOR 255 0 255
+   			END
+  		END 
+		CLASS
+			MAXSCALE 200000
+			MINSCALE  10000
+			EXPRESSION "2"
+    		STYLE
+				width 4
+     			COLOR 0 0 255
+   			END
+  		END 
+		CLASS
+			MAXSCALE 200000
+			MINSCALE  10000
+			EXPRESSION "13"
+    		STYLE
+				width 4
+				COLOR 241 137 16
+   			END
+  		END 
+		CLASS
+			MAXSCALE  10000
+			EXPRESSION "1"
+    		STYLE
+				width 6
+     			COLOR 255 0 0
+   			END
+  		END 
+		CLASS
+			MAXSCALE  10000
+			EXPRESSION "8"
+    		STYLE
+				width 6
+     			COLOR 255 0 255
+   			END
+  		END 
+		CLASS
+			MAXSCALE  10000
+			EXPRESSION "2"
+    		STYLE
+				width 6
+     			COLOR 0 0 255
+   			END
+  		END 
+		CLASS
+			MAXSCALE  10000
+			EXPRESSION "13"
+    		STYLE
+				width 6
+				COLOR 241 137 16
+   			END
+  		END 
+END
+
+#subway stops- BEGIN
+LAYER
+        NAME "subwaystops"
+        STATUS DEFAULT
+		GROUP "subway" 
+
+        CONNECTIONTYPE OGR
+        CONNECTION "mapinfo/subway_stops.TAB"
+        TYPE POINT
+		CLASSITEM "lineID"
+		
+		CLASS
+			MAXSCALE 200000
+			MINSCALE  10000
+			EXPRESSION "1"
+    		STYLE
+				symbol "circle"
+     			COLOR 255 255 255
+				SIZE 11
+   			END
+    		STYLE
+				symbol "circle"
+     			COLOR 255 0 0
+				SIZE 8
+   			END
+  		END 
+		CLASS
+			MAXSCALE 200000
+			MINSCALE  10000
+			EXPRESSION "8"
+    		STYLE
+				symbol "circle"
+     			COLOR 255 255 255
+				SIZE 11
+   			END
+    		STYLE
+				symbol "circle"
+     			COLOR 255 0 255
+				SIZE 8
+   			END
+  		END 
+		CLASS
+			MAXSCALE 200000
+			MINSCALE  10000
+			EXPRESSION "2"
+    		STYLE
+				symbol "circle"
+     			COLOR 255 255 255
+				SIZE 11
+   			END
+    		STYLE
+				symbol "circle"
+     			COLOR 0 0 255
+				SIZE 8
+   			END
+  		END 
+		CLASS
+			MAXSCALE 200000
+			MINSCALE  10000
+			EXPRESSION "13"
+    		STYLE
+				symbol "circle"
+     			COLOR 255 255 255
+				SIZE 11
+   			END
+    		STYLE
+				symbol "circle"
+				COLOR 241 137 16
+				SIZE 8
+   			END
+  		END 
+		CLASS
+			MAXSCALE  10000
+			EXPRESSION "1"
+    		STYLE
+				symbol "circle"
+     			COLOR 255 0 0
+				SIZE 14
+   			END
+  		END 
+		CLASS
+			MAXSCALE  10000
+			EXPRESSION "8"
+    		STYLE
+				symbol "circle"
+     			COLOR 255 0 255
+				SIZE 14
+   			END
+  		END 
+		CLASS
+			MAXSCALE  10000
+			EXPRESSION "2"
+    		STYLE
+				symbol "circle"
+     			COLOR 0 0 255
+				SIZE 14
+   			END
+  		END 
+		CLASS
+			MAXSCALE  10000
+			EXPRESSION "13"
+    		STYLE
+				symbol "circle"
+				COLOR 241 137 16
+				SIZE 14
+   			END
+  		END 
+END
+
+#subway transfer stops- BEGIN
+LAYER
+        NAME "subway_transfer_stops"
+        STATUS DEFAULT
+		GROUP "subway" 
+
+        CONNECTIONTYPE OGR
+        CONNECTION "mapinfo/subway_stops.TAB"
+        TYPE POINT
+		CLASSITEM "transferstop"
+		
+		CLASS
+			MAXSCALE 200000
+			MINSCALE  10000
+			EXPRESSION "1-2"
+    		STYLE
+				symbol "circle"
+     			COLOR 255 0 0
+				SIZE 10
+   			END
+    		STYLE
+				symbol "circle"
+     			COLOR 0 0 255
+				SIZE  7
+   			END
+  		END 
+		CLASS
+			MAXSCALE 200000
+			MINSCALE  10000
+			EXPRESSION "1-8"
+    		STYLE
+				symbol "circle"
+     			COLOR 255 0 0
+				SIZE 10
+   			END
+    		STYLE
+				symbol "circle"
+     			COLOR 255 0 255
+				SIZE 7
+   			END
+  		END 
+		CLASS
+			MAXSCALE 200000
+			MINSCALE  10000
+			EXPRESSION "2-13"
+    		STYLE
+				symbol "circle"
+				COLOR 241 137 16
+				SIZE 10
+   			END
+    		STYLE
+				symbol "circle"
+     			COLOR 0 0 255
+				SIZE  7
+   			END
+  		END 
+		CLASS
+			MAXSCALE  10000
+			EXPRESSION "1-2"
+    		STYLE
+				symbol "circle"
+     			COLOR 255 0 0
+				SIZE 14
+   			END
+    		STYLE
+				symbol "circle"
+     			COLOR 0 0 255
+				SIZE 10
+   			END
+  		END 
+		CLASS
+			MAXSCALE  10000
+			EXPRESSION "1-8"
+    		STYLE
+				symbol "circle"
+     			COLOR 255 0 0
+				SIZE 14
+   			END
+    		STYLE
+				symbol "circle"
+     			COLOR 255 0 255
+				SIZE 10
+   			END
+  		END 
+		CLASS
+			MAXSCALE  10000
+			EXPRESSION "2-13"
+    		STYLE
+				symbol "circle"
+				COLOR 241 137 16
+				SIZE 14
+   			END
+    		STYLE
+				symbol "circle"
+     			COLOR 0 0 255
+				SIZE 10
+   			END
+  		END 
+END
+
+#districtboundary line- BEGIN
+LAYER
+        NAME "district_boundary"
+        STATUS DEFAULT
+		GROUP "district" 
+
+        CONNECTIONTYPE OGR
+        CONNECTION "mapinfo/district_boundary.TAB"
+        TYPE LINE
+		#TRANSPARENCY ALPHA
+		
+		#This would follow mapinfo styles. Uncomment these if you want custom colors
+
+		CLASS
+    		NAME "district"
+    		STYLE
+				#SYMBOL "dashed"
+				width 1
+     			OUTLINECOLOR 102 102 102
+   			END
+  		END 
+END
+
+# ROAD LABELS
+# ZOOM LEVEL 0 and 1
+LAYER
+        NAME "400_280_180_labels"
+		GROUP "road_labels"
+        STATUS DEFAULT
+        TYPE annotation
+
+		DATA "shape/roads"
+
+        MAXSCALE 440000
+		MINSCALE 200000
+        CLASSITEM "RD_CLASS"
+		LABELITEM "CN_NAME"
+
+        CLASS
+			EXPRESSION "400"
+			LABEL
+				FONT zysong
+				TYPE TRUETYPE
+				COLOR 0 0 0
+				OUTLINECOLOR 255 255 255
+				BUFFER 40
+				ENCODING GB2312
+				SIZE 10
+				POSITION AUTO
+				ANGLE AUTO
+				PARTIALS FALSE
+			END
+        END
+        CLASS
+			EXPRESSION "280"
+			LABEL
+				FONT zysong
+				TYPE TRUETYPE
+				COLOR 0 0 0
+				OUTLINECOLOR 255 255 255
+				BUFFER 40
+				ENCODING GB2312
+				SIZE 10
+				POSITION AUTO
+				ANGLE AUTO
+				PARTIALS FALSE
+			END
+        END
+        CLASS
+			EXPRESSION "180"
+			LABEL
+				FONT zysong
+				TYPE TRUETYPE
+				COLOR 0 0 0
+				OUTLINECOLOR 255 255 255
+				BUFFER 0
+				ENCODING GB2312
+				SIZE 10
+				POSITION AUTO
+				ANGLE AUTO
+				PARTIALS FALSE
+				MINDISTANCE 100
+			END
+        END
+END
+
+# ZOOM LEVEL 2
+LAYER
+        NAME "400_280_180_170_labels"
+		GROUP "road_labels"
+        STATUS DEFAULT
+        TYPE annotation
+
+		DATA "shape/roads"
+
+        MAXSCALE 200000
+        MINSCALE 100000
+        CLASSITEM "RD_CLASS"
+		LABELITEM "CN_NAME"
+
+        CLASS
+			EXPRESSION ([RD_CLASS] >= 180)
+			LABEL
+				FONT zysong
+				TYPE TRUETYPE
+				COLOR 0 0 0
+				OUTLINECOLOR 255 255 255
+				BUFFER 60
+				ENCODING GB2312
+				SIZE 10
+				POSITION AUTO
+				ANGLE AUTO
+				PARTIALS FALSE
+			END
+        END
+        CLASS
+			EXPRESSION "170"
+			LABEL
+				FONT zysong
+				TYPE TRUETYPE
+				COLOR 0 0 0
+				OUTLINECOLOR 255 255 255
+				BUFFER 10
+				ENCODING GB2312
+				SIZE 10 
+				POSITION AUTO
+				ANGLE AUTO
+				PARTIALS FALSE
+				MINDISTANCE 100
+			END
+        END
+END
+
+#ZOOM LEVEL 3
+LAYER
+        NAME "400_280_180_170_160_labels"
+		GROUP "road_labels"
+        STATUS DEFAULT
+        TYPE annotation
+
+		DATA "shape/roads"
+
+        MAXSCALE 100000
+        MINSCALE  50000
+        CLASSITEM "RD_CLASS"
+		LABELITEM "CN_NAME"
+
+        CLASS
+			EXPRESSION ([RD_CLASS] >= 170)
+			LABEL
+				FONT zysong
+				TYPE TRUETYPE
+				COLOR 0 0 0
+				OUTLINECOLOR 255 255 255
+				BUFFER 60
+				ENCODING GB2312
+				SIZE 10
+				POSITION AUTO
+				ANGLE AUTO
+				PARTIALS FALSE
+			END
+        END
+        CLASS
+			EXPRESSION "160"
+			LABEL
+				FONT zysong
+				TYPE TRUETYPE
+				COLOR 0 0 0
+				OUTLINECOLOR 255 255 255
+				BUFFER 20
+				ENCODING GB2312
+				SIZE 10
+				POSITION AUTO
+				ANGLE AUTO
+				PARTIALS FALSE
+			END
+        END
+END
+
+#ZOOM LEVEL 4
+LAYER
+        NAME "400_280_180_170_160_150_labels"
+		GROUP "road_labels"
+        STATUS DEFAULT
+        TYPE annotation
+
+		DATA "shape/roads"
+
+        MAXSCALE  50000
+		MINSCALE  10000
+        CLASSITEM "RD_CLASS"
+		LABELITEM "CN_NAME"
+
+        CLASS
+			EXPRESSION ([RD_CLASS] >= 150)
+			LABEL
+				FONT zysong
+				TYPE TRUETYPE
+				COLOR 0 0 0
+				OUTLINECOLOR 255 255 255
+				BUFFER 20
+				ENCODING GB2312
+				SIZE 10
+				POSITION AUTO
+				ANGLE AUTO
+				PARTIALS FALSE
+			END
+        END
+END
+
+#ZOOM LEVEL 5
+LAYER
+        NAME "400_280_180_170_160_150_labels"
+		GROUP "road_labels"
+        STATUS DEFAULT
+        TYPE annotation
+
+		DATA "shape/roads"
+
+        MAXSCALE  10000
+        CLASSITEM "RD_CLASS"
+		LABELITEM "CN_NAME"
+
+        CLASS
+			EXPRESSION ([RD_CLASS] >= 160)
+			LABEL
+				FONT zysong
+				TYPE TRUETYPE
+				COLOR 0 0 0
+				OUTLINECOLOR 255 255 255
+				BUFFER 30
+				ENCODING GB2312
+				SIZE 11
+				POSITION AUTO
+				ANGLE AUTO
+				PARTIALS FALSE
+				MINDISTANCE 50
+			END
+        END
+        CLASS
+			EXPRESSION ([RD_CLASS] <= 150)
+			LABEL
+				FONT zysong
+				TYPE TRUETYPE
+				COLOR 0 0 0
+				OUTLINECOLOR 255 255 255
+				BUFFER 20
+				ENCODING GB2312
+				SIZE 10
+				POSITION AUTO
+				ANGLE AUTO
+				PARTIALS FALSE
+			END
+        END
+END
+
+#subway stops labels- BEGIN
+LAYER
+        NAME "subwaystops_labels"
+        STATUS DEFAULT
+		GROUP "subway" 
+
+        CONNECTIONTYPE OGR
+        CONNECTION "mapinfo/subway_stops.TAB"
+        #TYPE POINT
+        TYPE annotation
+
+		CLASSITEM "lineID"
+		LABELITEM "cn_name"
+
+		LABELMAXSCALE 55000
+		
+		CLASS
+			EXPRESSION "1"
+			LABEL
+				FONT zysong
+				TYPE TRUETYPE
+     			COLOR 255 0 0
+				OUTLINECOLOR 255 255 255
+				BUFFER 0
+				ENCODING GB2312
+				SIZE 10
+				POSITION UC
+				ANGLE AUTO
+				PARTIALS FALSE
+			END
+  		END 
+		CLASS
+			EXPRESSION "8"
+			LABEL
+				FONT zysong
+				TYPE TRUETYPE
+     			COLOR 255 0 255
+				OUTLINECOLOR 255 255 255
+				BUFFER 0
+				ENCODING GB2312
+				SIZE 10
+				POSITION AUTO
+				ANGLE AUTO
+				PARTIALS FALSE
+			END
+  		END 
+		CLASS
+			EXPRESSION "2"
+			LABEL
+				FONT zysong
+				TYPE TRUETYPE
+     			COLOR 0 0 255
+				OUTLINECOLOR 255 255 255
+				BUFFER 0
+				ENCODING GB2312
+				SIZE 10
+				POSITION AUTO
+				ANGLE 45
+				PARTIALS FALSE
+			END
+  		END 
+		CLASS
+			EXPRESSION "13"
+			LABEL
+				FONT zysong
+				TYPE TRUETYPE
+				COLOR 241 137 16
+				OUTLINECOLOR 255 255 255
+				BUFFER 0
+				ENCODING GB2312
+				SIZE 10
+				POSITION AUTO
+				ANGLE AUTO
+				PARTIALS FALSE
+			END
+  		END 
+END
+
+#districtboundary labels - BEGIN
+LAYER
+        NAME "district_labels"
+        STATUS DEFAULT
+		GROUP "district" 
+
+        CONNECTIONTYPE OGR
+        CONNECTION "mapinfo/district_boundary.TAB"
+        #TYPE POLYGON 
+        TYPE annotation
+		
+		LABELITEM "NAME"
+
+		CLASS
+			LABEL
+				FONT zysong
+				TYPE TRUETYPE
+				COLOR 255 0 0
+				OUTLINECOLOR 255 255 255
+				BUFFER 5
+				ENCODING GB2312
+				SIZE 12
+				POSITION CC
+				ANGLE AUTO
+				PARTIALS FALSE
+			END
+  		END 
+END
+
+END 
+#Map File

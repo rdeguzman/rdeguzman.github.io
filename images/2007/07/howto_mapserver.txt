@@ -1,0 +1,309 @@
+Prerequisites:
+rpm -i glibc-kernheaders-2.4-9.1.98.EL.i386.rpm
+rpm -i glibc-headers-2.3.4-2.25.i386.rpm
+rpm -i glibc-devel-2.3.4-2.25.i386.rpm
+rpm -i cpp-3.4.6-3.i386.rpm
+rpm -i vim-common-6.3.046-0.40E.7.i386.rpm
+rpm -i vim-enhanced-6.3.046-0.40E.7.i386.rpm
+rpm -i gcc-3.4.6-3.i386.rpm
+rpm -i compat-libstdc++-33-3.2.3-47.3.i386.rpm
+rpm -i autoconf-2.59-5.noarch.rpm
+rpm -i automake14-1.4p6-12.noarch.rpm
+rpm -i automake15-1.5-13.noarch.rpm
+rpm -i automake16-1.6.3-5.noarch.rpm
+rpm -i automake17-1.7.9-5.noarch.rpm
+rpm -i automake-1.9.2-3.noarch.rpm
+rpm -i bzip2-devel-1.0.2-13.EL4.3.i386.rpm
+rpm -i libidn-0.5.6-1.i386.rpm
+rpm -i curl-7.12.1-8.rhel4.i386.rpm
+rpm -i pkgconfig-0.15.0-3.i386.rpm
+rpm -i libidn-devel-0.5.6-1.i386.rpm
+rpm -i e2fsprogs-devel-1.35-12.4.EL4.i386.rpm
+rpm -i krb5-devel-1.3.4-33.i386.rpm
+rpm -i zlib-devel-1.2.1.2-1.2.i386.rpm
+rpm -i openssl-devel-0.9.7a-43.10.i386.rpm
+rpm -i flex-2.5.4a-33.i386.rpm
+rpm -i libstdc++-devel-3.4.6-3.i386.rpm
+rpm -i libxml2-devel-2.6.16-6.i386.rpm
+rpm -i libxslt-devel-1.1.11-1.i386.rpm
+rpm -i nmap-3.70-1.i386.rpm
+rpm -i umb-scheme-3.2-36.EL4.i386.rpm
+rpm -i guile-1.6.4-14.i386.rpm
+rpm -i swig-1.3.21-6.i386.rpm
+rpm -i apr-0.9.4-24.5.c4.2.i386.rpm
+rpm -i apr-util-0.9.4-21.i386.rpm
+rpm -i neon-0.24.7-4.i386.rpm
+rpm -i perl-URI-1.30-4.noarch.rpm
+rpm -i subversion-1.1.4-2.ent.i386.rpm
+rpm -i libtool-libs-1.5.6-4.EL4.1.c4.4.i386.rpm
+rpm -i libtool-1.5.6-4.EL4.1.c4.4.i386.rpm
+
+#For CentOS5
+rpm -ivh libX11-devel-1.0.3-8.el5.i386.rpm xorg-x11-proto-devel-7.1-9.el5.centos.i386.rpm libXdmcp-devel-1.0.1-2.1.i386.rpm mesa-libGL-devel-6.5.1-7.2.el5.i386.rpm
+
+1. Install libjpeg. 
+-rpm -ivh libjpeg-devel-6b-33.i386.rpm
+
+2. Install libpng
+-tar -zxvf libpng-1.2.8-config.tar.gz
+-cd libpng-1.2.8-config
+-./configure
+-make
+-make install
+
+3. Install jpegsrc
+-tar -zxvf jpegsrc.v6b.tar.gz
+-cd jpeg-6b/
+-./configure
+-make
+-make install
+
+4. Install zlib
+-tar -zxvf zlib-1.2.2.tar.gz
+-cd zlib-1.2.2
+-./configure
+-make
+-make install
+
+5. Install freetype
+-tar -zxvf freetype-2.1.10.tar.gz
+-cd freetype-2.1.10
+-./configure
+-make
+-make install
+
+6. Install proj4
+-tar -zxvf proj-4.4.9.tar.gz
+-./configure
+-make
+-make install
+
+7. Install gd. Note on CENTOS5, you can install gd-devel-2.0.33-9.3.fc6.i386.rpm
+   Support for PNG library:          yes
+   Support for JPEG library:         yes
+   Support for Freetype 2.x library: yes
+   Support for Fontconfig library:   no
+   Support for Xpm library:          no
+   Support for pthreads:             yes
+
+-tar -zxvf gd-2.0.33.tar.gz
+-cd gd-2.0.33
+-./configure
+-make
+-make install
+
+8. install gdal
+./configure --with-png --with-libtiff  --with-static-proj4=/usr/local/bin --with-python --with-perl --with-geos --with-pg=/usr/local/pgsql/bin/pg_config --with-mysql
+
+GDAL is now configured for i686-pc-linux-gnu
+
+  Installation directory:    /usr/local
+  C compiler:                gcc -O2
+  C++ compiler:              g++ -O2
+
+  LIBTOOL support:           yes
+
+  LIBZ support:              external
+  GRASS support:             no
+  CFITSIO support:           no
+  PCRaster support:          internal
+  NETCDF support:            no
+  LIBPNG support:            external
+  LIBTIFF support:           external
+  LIBGEOTIFF support:        internal
+  LIBJPEG support:           external
+  LIBGIF support:            external
+  OGDI support:              no
+  HDF4 support:              no
+  HDF5 support:              no
+  KAKADU support:            no
+  JASPER support:            no
+  ECW support:               no
+  MrSID support:             no
+  CURL support (wcs):        yes
+  POSTGRESQL support:        yes
+  MySQL support:             yes
+  XERCES support:            no
+  ODBC support:              no
+  PGEO support:              no
+  OCI support:               no
+  SDE support:               no
+  DODS support:              no
+  SQLite support:            no
+  DWGdirect support          no
+  PANORAMA GIS support:      no
+  INFORMIX DataBlade support:no
+  GEOS support:              yes
+
+  Statically link PROJ.4:    yes
+
+  Traditional Python:        yes
+  NG SWIG Bindings:          perl
+
+  enable OGR building:       yes
+
+make
+make install
+
+9. install libtiff
+$tar -zxvf tiff-3.7.0.tar.gz
+$cd tiff-3.7.0
+$./configure
+$make
+$make install
+$ln -s /usr/local/pgsql/lib/libpq.so.5 /usr/local/lib/libpq.so.5
+
+10. install mapserver. This assumes you have PHP, APACHE, POSTGRES, POSTGIS,
+MYSQL already installed.
+
+./configure 
+--with-jpeg 
+--with-gd 
+--with-freetype=/usr/local/bin
+--with-png=/user/local/bin 
+--with-ogr 
+--with-proj 
+--with-gdal
+--with-httpd=/usr/local/apache2/bin/httpd 
+--with-tiff
+--with-php=/usr/local/php
+--with-php-regex-dir=/usr/local/php/include/php/regex --with-wfs --with-wcs
+--with-wmsclient --with-wfsclient --with-geos=/usr/local/bin/geos-config
+--with-gdal=/usr/local/bin/gdal-config
+--with-postgis=/usr/local/pgsql/bin/pg_config 
+
+MapServer Version from map.h: '4.10.1'
+configure: checking where FreeType 2.x is installed...
+checking for FT_Init_FreeType in -lfreetype... yes
+        using libfreetype -lfreetype from system libs.
+configure: checking where Zlib is installed...
+checking for zlibVersion in -lz... yes
+        using libz from system libs (-DUSE_ZLIB).
+configure: checking where PNG is installed...
+checking for png_init_io in -lpng... yes
+        using libpng from system libs.
+configure: checking whether we should include JPEG support...
+checking for jpeg_read_header in -ljpeg... yes
+        using libjpeg from system libs.
+configure: checking where libXpm is installed...
+checking for XpmFreeXpmImage in -lXpm... no
+        XPM (libXpm) library cannot be found, possibly needed for GD
+configure: checking where libiconv is installed...
+checking for iconv_open in -lc... yes
+checking for libiconv_open in -liconv... no
+        using libiconv from system libs.
+        libiconv found. Enabling internationalization (-DUSE_ICONV)
+configure: checking for GD 2.0.16 or higher...
+checking for gdFontCacheSetup in -lgd... yes
+        using libgd 2.0.16 (or higher) from system libs (-L/usr/lib -lgd
+-ljpeg -lfreetype -lpng -lz  ).
+checking for gdImageCreate in -lgd... yes
+checking for gdImageGif in -lgd... yes
+checking for gdImagePng in -lgd... yes
+checking for gdImageJpeg in -lgd... yes
+checking for gdImageWBMP in -lgd... yes
+checking for gdImageStringFT in -lgd... yes
+checking for gdImageOpenPolygon in -lgd... no
+checking for gdImageGifPtr in -lgd... yes
+checking for gdFontGetTiny in -lgd... yes
+        using GD ( -DUSE_GD_GIF -DUSE_GD_PNG -DUSE_GD_JPEG -DUSE_GD_WBMP
+-DUSE_GD_FT -DGD_HAS_GDIMAGEGIFPTR -DGD_HAS_GETBITMAPFONTS) from system libs.
+configure: checking whether we should include PDF support...
+checking for PDF_setlinewidth in -lpdf... no
+checking for PDF_setrgbcolor in -lpdf... no
+checking for PDF_moveto in -lpdf... no
+checking for PDF_curveto in -lpdf... no
+checking for PDF_show_xy in -lpdf... no
+        libpdf not found... PDF support not included.
+configure: checking whether we should include EPPL7 support...
+        including EPPL7 support.
+configure: checking whether we should include PROJ.4 support...
+checking for pj_init in -lproj... yes
+checking for pj_transform in -lproj... yes
+        using PROJ.4 from system libs.
+configure: checking whether we should include thread safe support...
+        thread safe support disabled.
+configure: checking whether we should include ESRI SDE support...
+        ESRI SDE support not requested.
+checking if GEOS support requested... yes, user supplied geos-config
+(/usr/local/bin/geos-config)
+configure: checking whether we should include OGR support...
+checking for gdal-config... /usr/local/bin/gdal-config
+        OGR enabled (-DUSE_OGR).
+checking if GDAL support requested... yes, user supplied gdal-config
+(/usr/local/bin/gdal-config)
+checking checking ms JPEG output... no we, have GDAL available.
+configure: checking whether we should include TIFF support...
+checking for TIFFOpen in -ltiff... yes
+        using libtiff from system libs.
+checking if PostGIS support requested... yes, user supplied pg_config
+checking if MyGIS support requested... yes
+checking for mysql_config... /usr/local/mysql/bin/mysql_config
+yes, user supplied my_config
+checking if OracleSpatial support requested... no
+checking if MING/Flash support requested... no
+configure: checking whether we should include WMS Server support...
+        OGC WMS compatibility enabled (-DUSE_WMS_SVR).
+configure: checking whether we should include WFS Server support...
+        OGC WFS Server support enabled (-DUSE_WFS_SVR).
+configure: checking whether we should include WCS Server support...
+        OGC WCS Server support enabled (-DUSE_WCS_SVR).
+configure: checking whether we should include WMS Client Connections
+support...
+configure: checking whether we should include WFS Client Connections
+support...
+configure: checking whether we should include OGC SOS Server support...
+configure: checking for curl-config...
+checking for curl-config... /usr/bin/curl-config
+        found libcurl version 7.12.1
+        OGC WMS Client Connections enabled (-DUSE_WMS_LYR).
+        OGC WFS Client Connections enabled (-DUSE_WFS_LYR).
+configure: checking for xml2-config...
+configure: checking whether FastCGI support should be enabled...
+        FastCGI support not enabled.
+configure: checking HTTPD server (Apache) version...
+        using user-supplied httpd (/usr/local/apache2/bin/httpd)
+        /usr/local/apache2/bin/httpd version is Apache/2.0.58 (2000058).
+Compiling with fast MS_NINT
+checking compiler warnings... basic
+configure: checking whether we should enable debug features...
+configure: checking for PHP/MapScript module options...
+checking for g++ -shared ... yes
+checking for location of config.h or php_config.h...
+/usr/local/php/include/php//main/php_config.h
+checking whether we have PHP3 or PHP4... -DPHP4
+checking whether we should use PHP's regex... yes
+        found regex_extra.h - building PHP MapScript with PHP's bundled regex
+        PHP/MapScript module configured.
+checking if --enable-runpath requested... no
+checking if --with-java-include-os-name specified... no, autodetected linux
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating mapscript/php3/Makefile
+config.status: creating mapscript/java/Makefile
+config.status: creating mapscript/csharp/Makefile
+
+-make
+-make install
+
+10. cp -rf mapserv /usr/local/apache2/cgi-bin/
+check mapserv
+./mapserv -v
+MapServer version 4.10.1 OUTPUT=GIF OUTPUT=PNG OUTPUT=JPEG OUTPUT=WBMP OUTPUT=SVG SUPPORTS=PROJ SUPPORTS=FREETYPE SUPPORTS=WMS_SERVER SUPPORTS=WMS_CLIENT SUPPORTS=WFS_SERVER SUPPORTS=WFS_CLIENT SUPPORTS=WCS_SERVER SUPPORTS=GEOS INPUT=TIFF INPUT=EPPL7 INPUT=POSTGIS INPUT=OGR INPUT=GDAL INPUT=MYGIS INPUT=SHAPEFILE
+
+11. cp the ff:
+cp legend scalebar shp2img shp2pdf shptree shptreetst shptreevis sortshp
+tile4ms /usr/local/apache2/cgi-bin/
+
+12. cp $mapserver_install_dir/mapscript/php3/php_mapscript.so /usr/local/apache2/modules/
+
+######################################
+11. edit httpd.conf
+setenv LD_LIBRARY_PATH /usr/local/lib
+
+12. vi /etc/ld.so.conf
+Add the following lines:
+/usr/local/include
+/usr/local/lib
+run:
+13 ldconfig

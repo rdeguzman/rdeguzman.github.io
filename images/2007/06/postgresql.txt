@@ -1,0 +1,57 @@
+#!/bin/sh
+# postgresql    This is the init script for starting up the PostgreSQL
+#               server
+
+# chkconfig: - 85 15
+# description: Starts and stops the PostgreSQL backend daemon that handles all database requests.
+# processname: postgres
+# pidfile: /usr/local/pgsql/data/postgres.pid
+#
+
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+# Get config.
+. /etc/sysconfig/network
+
+# Check that networking is up.
+# Pretty much need it for postgres.
+[ ${NETWORKING} = "no" ] && exit 0
+
+[ -f /usr/local/pgsql/bin/postgres ] || exit 0
+
+# See how we were called.
+case "$1" in
+start)
+pid=`pidof postgres`
+if [ $pid ]
+then
+echo "Postmaster already running."
+else
+echo -n "Starting postgresql service: "
+su -l postgres -c '/usr/local/pgsql/bin/pg_ctl -o -i -D /usr/local/pgsql/data/ -l /usr/local/pgsql/data/logfile start'
+sleep 1
+echo
+exit
+fi
+;;
+
+stop)
+echo -n "Stopping postgresql service: "
+killproc postgres
+sleep 2
+rm -f /usr/local/pgsql/data/postgres.pid
+echo
+;;
+
+restart)
+$0 stop
+$0 start
+;;
+
+*)
+echo "Usage: postgresql {start|stop|restart}"
+exit 1
+esac
+
+exit 0

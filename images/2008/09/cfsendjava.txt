@@ -1,0 +1,107 @@
+/**
+ * <p>Title: </p>
+ * <p>Description: </p>
+ * <p>Copyright: Copyright (c) 2003</p>
+ * <p>Company: </p>
+ * @author not attributable
+ * @version 1.0
+ */
+import GSMModem.*;
+
+public class CFSend {
+	
+	GSMModem gsmmodem1 = null;
+
+	String device = "COM1";
+	String baud = "9600";
+	String sn = "WQUU-AJKD-UKVD-JDDU";
+	String mobile = "15811157704";
+	String errMsg = "";
+	
+	String textEN = null;
+	String textCN = null;
+
+	public CFSend() {
+		gsmmodem1 = new GSMModem();
+		gsmmodem1.setDevice(this.device);
+		gsmmodem1.setBaudrate(this.baud);
+		gsmmodem1.setSn(this.sn);
+	}
+  
+	public void setMobileNo(String mobileno){
+		this.mobile = mobileno;
+	}
+	
+	public void setTextEN(String mystring){
+		this.textEN = mystring;
+	}
+	
+	public void setTextCN(String mystring){
+		this.textCN = mystring;
+	}
+	
+	public String getError(){
+		return this.errMsg;
+	}
+	
+	public boolean send(){
+		boolean valid = true;
+		try{
+			//Initializing Modem;
+			System.out.println("Initializing...");
+			if(this.gsmmodem1.GSMModemInit() == false){
+				valid = false;
+				this.errMsg = this.gsmmodem1.GSMModemGetErrorMsg();
+			}
+			
+			//Sending SMS
+			if(textCN != null){
+				System.out.println("Sending SMS in CN...");
+				if( gsmmodem1.GSMModemSMSsend(null, gsmmodem1.ENCodeing_GB2312, this.textCN, this.mobile, false)){
+					valid = true; 
+				}
+				else{
+					valid = false;
+					this.errMsg = this.gsmmodem1.GSMModemGetErrorMsg();
+				}
+			}
+			
+			if(textEN != null){
+				System.out.println("Sending SMS in EN...");
+				if( gsmmodem1.GSMModemSMSsend(null, gsmmodem1.ENCodeing_US, this.textEN, this.mobile, false)){
+					valid = true; 
+				}
+				else{
+					valid = false;
+					this.errMsg = this.gsmmodem1.GSMModemGetErrorMsg();
+				}
+			}
+			
+			try{
+				java.lang.Thread.sleep(500);
+			}
+			catch (Exception e){
+				e.printStackTrace();
+				valid = false;
+			}
+			
+		}
+		catch(Exception e){
+			e.printStackTrace();
+			valid = false;
+		}
+		
+		this.gsmmodem1.GSMModemRelease();
+		//System.out.println("Modem Released");
+		
+		return valid;
+	}
+	
+	public static void main(String[] args){
+		CFSend sms = new CFSend();
+		sms.setMobileNo("15811157704");
+		sms.setTextEN("hello");
+
+		System.out.println(sms.send());
+	}
+}

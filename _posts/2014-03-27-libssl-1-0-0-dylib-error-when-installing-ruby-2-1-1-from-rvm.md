@@ -1,8 +1,8 @@
 ---
-title: 'dyld: Library not loaded: /Users/mpapis/.sm/pkg/versions/openssl/1.0.1f/lib/libssl.1.0.0.dylib when installing ruby-2.1.1 from rvm'
+title: 'openssl libssl.1.0.0.dylib error when installing ruby-2.1.1 from rvm'
 author: rupert
 layout: post
-permalink: /2014/03/dyld-library-not-loaded-usersmpapis-smpkgversionsopenssl1-0-1fliblibssl-1-0-0-dylib-when-installing-ruby-2-1-1-from-rvm/
+permalink: /2014/03/libssl-1-0-0-dylib-error-when-installing-ruby-2-1-1-from-rvm/
 categories:
   - ruby
 tags:

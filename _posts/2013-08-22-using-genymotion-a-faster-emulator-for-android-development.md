@@ -1,8 +1,8 @@
 ---
-title: A faster emulator for Android development
+title: Genymotion, a faster emulator for Android development
 author: rupert
 layout: post
-permalink: /2013/08/a-faster-emulator-for-android-development/
+permalink: /2013/08/using-genymotion-a-faster-emulator-for-android-development/
 categories:
   - android
   - mobile

@@ -10,7 +10,7 @@ tags:
   - genymotion
 ---
 
-The last time I updated Genymotion from 1.3 to 2.0, I had issues with ARM support INSTALL_FAILED_CPU_ABI_INCOMPATIBLE as described in this stackoverflow [post](http://stackoverflow.com/questions/17831990/how-do-you-install-google-frameworks-play-accounts-etc-on-a-genymotion-virt).  So I ensured to take careful steps in upgrading Genymotion just in case I need to revert back to 1.3
+The last time I updated Genymotion from 1.3 to 2.0, I had issues with [ARM support INSTALL_FAILED_CPU_ABI_INCOMPATIBLE as described in stackoverflow](http://stackoverflow.com/questions/17831990/how-do-you-install-google-frameworks-play-accounts-etc-on-a-genymotion-virt).  So I ensured to take careful steps in upgrading Genymotion just in case I need to revert back to 1.3
 
 1. **Backup official genymotion files.** Genymotion official FAQ regarding ["How do I properly uninstall Genymotion?"](https://cloud.genymotion.com/page/faq/#uninstall) notes two important paths
 

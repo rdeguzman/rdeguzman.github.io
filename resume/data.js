@@ -323,7 +323,7 @@ function createEducation(){
     html += "</div>";
     html += "<br/>";
 
-    $("#education").append(html);
+    $("#education_history").append(html);
   }
 }
 

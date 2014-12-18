@@ -27,7 +27,11 @@ The last time I updated Genymotion from 1.3 to 2.0, I had issues with [ARM suppo
 		   |---templates
 		   |---vdi
 		   
-		% mkdir ~/Desktop/genymotion_backup   
+		% mkdir ~/Desktop/genymotion_backup
+		% cp -Rf /Applications/Genymotion* ~/Desktop/genymotion_backup/
+		% cp -Rf ~/.Genymobile ~/Desktop/genymotion_backup/
+		% rm -Rf /Applications/Genymotion*
+		% rm -Rf ~/.Genymobile   
 	   	   
 2. **Install Genymotion**. Download the latest Genymotion from https://cloud.genymotion.com/page/launchpad/download/ (v2.3 at the time of writing this).
 

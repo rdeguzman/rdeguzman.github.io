@@ -34,7 +34,7 @@ This post is about my experiments on how to display real time gps updates from a
 [`https://github.com/rdeguzman/itrackmygps-android`][3]  
 [`https://github.com/rdeguzman/itrackmygps-node`][4]
 
-<img src="/images/2013/12/gpstracks_overview.png" alt="gpstracks_overview.png" border="0" width="1476" height="522" />
+	![Overview](/images/2013/12/gpstracks_overview.png)
 
 ## Android Client
 

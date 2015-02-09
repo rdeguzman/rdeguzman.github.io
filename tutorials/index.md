@@ -3,6 +3,12 @@ title: Tutorials
 author: rupert
 layout: page
 ---
+
+**CheatSheets**
+[Android Eclipse](/cheatsheets/android-eclipse/)
+[Postgres](/cheatsheets/postgresql/)
+[PostGres Postgis CheatSheet][13]  
+
 **Debian:**  
 [Installing Postgresql8.3, Postgis1.3.3, pgRouting1.02][1]  
 [Installing Apache2.2 and ColdFusion 8][2]
@@ -25,7 +31,6 @@ layout: page
 Others:  
 [Post Install Setup for Apache and ColdFusion][4]  
 [PostGres Postgis PostInstall Setup][12]  
-[PostGres Postgis CheatSheet][13]  
 [Oracle CheatSheet][14]
 
  [1]: /wordpress/2008/05/installing-postgresql-postgis-pgrouting-on-debian/
@@ -40,5 +45,5 @@ Others:
  [10]: /wordpress/2008/05/installing-postgres83-postgis133-pgrouting-on-macosx-leopard/
  [11]: /wordpress/2008/03/installing-postgres83-and-postgis-on-windows/
  [12]: /wordpress/2008/06/postgres-postgis-postinstall/
- [13]: /wordpress/2007/07/postgressql-commands/
+ [13]: /wordpress/2010/11/postgres-postgis-cheatsheet-v2-2/
  [14]: /wordpress/2008/08/oracle-sql-cheatsheet/

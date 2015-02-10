@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-Linux Date
+Linux CheatSheet
 ---
 
 ### Fromatting

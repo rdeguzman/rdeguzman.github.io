@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-PostGis
+PostGis CheatSheet
 ---
 ### Add Geometry Column
 	SELECT AddGeometryColumn('public', 'poi', 'the_geom', 4326, 'POINT', 2)

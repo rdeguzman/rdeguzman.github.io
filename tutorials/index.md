@@ -9,10 +9,8 @@ layout: page
 * [android-eclipse](/cheatsheets/android-eclipse.html)
 * [android](/cheatsheets/android.html)
 * [bash](/cheatsheets/bash.html)
-* [bundler](/cheatsheets/bundler.html)
 * [freebsd](/cheatsheets/freebsd.html)
 	* [freebsd-network](/cheatsheets/freebsd-network.html)
-* [gems](/cheatsheets/gems.html)
 * [git](/cheatsheets/git.html)
 * [jidea](/cheatsheets/jidea.html)
 * linux

@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-### Atlassian SourceTree
+### Atlassian SourceTree CheatSheet
 					
 
 	Open Bookmarks					Command+B

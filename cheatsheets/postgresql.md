@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-PostgreSQL
+PostgreSQL CheatSheet
 ---
 
 ### Postgis version?	

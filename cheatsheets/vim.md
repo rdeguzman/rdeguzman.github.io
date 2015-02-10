@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-Basic Vim
+Vim CheatSheet
 ---
 
 ### Removing ^M characters

@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-# Bash
+# Bash Cheatsheet
 
 ## Checking arguments
 

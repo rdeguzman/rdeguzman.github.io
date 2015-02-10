@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-Git
+Git Cheatsheet
 ---
 
 ### Normal Workflow

@@ -1,6 +1,6 @@
 # README
 
-Hi, this is Rupert's blog.	 My blog is now created in jekyll and hosted in github. It was previously created in wordpress. Jekyll statically create the pages.
+Hi, this is Rupert's blog.	 My blog is now created in jekyll and hosted in github after following this [tutorial](http://www.girliemac.com/blog/2013/12/27/wordpress-to-jekyll/). It was previously created in wordpress. Jekyll generates static pages for your blog.
 	
 	gem install -V jekyll
 	
@@ -17,8 +17,8 @@ Once jekyll is installed, we can see the blog by
 	    Server address: http://127.0.0.1:4000/
 	  Server running... press ctrl-c to stop.
 	  
-Jekyll generates the whole blog under the *_site* dir	  	  
-To create a post, we use markdown for syntax. See actual posts from *_posts* directory
+Jekyll generates the whole blog under the *_site* dir.  We can remove this directory to explicitly flush everything out.	  	  
+To create a post, we use [markdown for syntax](https://guides.github.com/features/mastering-markdown/). See actual posts from *_posts* directory
 
 	rupert-imac:/Projects/rdeguzman.github.io[master]% l _posts
 	total 4312

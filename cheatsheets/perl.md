@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Perl
 
 ## Search and Replace

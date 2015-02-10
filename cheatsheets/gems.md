@@ -1,3 +1,6 @@
+---
+layout: default
+---
 ### gem
 
 	help COMMAND	  For help on a particular command 

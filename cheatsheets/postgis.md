@@ -1,3 +1,6 @@
+---
+layout: default
+---
 PostGis
 ---
 ### Add Geometry Column

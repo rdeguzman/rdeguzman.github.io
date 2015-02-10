@@ -1,3 +1,6 @@
+---
+layout: default
+---
 ### bundler 
 	bundle init				Generate a simple Gemfile, placed in the current directory
 	bundle install			Install the gems specified by the Gemfile or Gemfile.lock

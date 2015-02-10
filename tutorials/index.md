@@ -4,10 +4,27 @@ author: rupert
 layout: page
 ---
 
-**CheatSheets**
-[Android Eclipse](/cheatsheets/android-eclipse/)
-[Postgres](/cheatsheets/postgresql/)
-[PostGres Postgis CheatSheet][13]  
+**CheatSheets:**
+
+* [android-eclipse](/cheatsheets/android-eclipse.html)
+* [android](/cheatsheets/android.html)
+* [bash](/cheatsheets/bash.html)
+* [bundler](/cheatsheets/bundler.html)
+* [freebsd](/cheatsheets/freebsd.html)
+	* [freebsd-network](/cheatsheets/freebsd-network.html)
+* [gems](/cheatsheets/gems.html)
+* [git](/cheatsheets/git.html)
+* [jidea](/cheatsheets/jidea.html)
+* linux
+	* [linux-date](/cheatsheets/linux-date.html)
+	* [linux-less](/cheatsheets/linux-less.html)
+	* [linux-screen](/cheatsheets/linux-screen.html)
+* [osx](/cheatsheets/osx.html)
+* [perl](/cheatsheets/perl.html)
+* [postgis](/cheatsheets/postgis.html)
+* [postgresql](/cheatsheets/postgresql.html)
+* [source_tree](/cheatsheets/source_tree.html)
+* [vim](/cheatsheets/vim.html)
 
 **Debian:**  
 [Installing Postgresql8.3, Postgis1.3.3, pgRouting1.02][1]  

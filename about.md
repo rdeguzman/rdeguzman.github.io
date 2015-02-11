@@ -26,9 +26,16 @@ On 2006, my boss landed an opportunity to setup a company in Beijing, China.  So
 
 Though I loved my career and relationship with my Cybersoft boss, on 2009, my wife and I decided to migrate to Australia. My sister and mother was in Australia and my wife's brother was in Sydney.  I moved to Melbourne as there were more GIS/programming jobs there. I worked as a .NET software developer for PelicanCorp and started exploring mobile development as Apple just released the iphones. I developed a dial before you dig mobile application in iOS for PelicanCorp and it won a few awards like the Navteq Challenge.  
 
-While in AU, I missed the Philippines.  I started a hobby mobile travel project with one of my colleagues from my very first job!  MyTravelPhilippines was born.
+While in AU, I missed the Philippines.  I started a hobby mobile travel project with one of my colleagues from my very first job.  www.mytravelphilippines.com was born.  It got as high as Top 1 on the Travel category for PH app store during its early years.  On 2011, my daughter was born, I worked part time on PelicanCorp and eventually left and decided I wanted to go mobile and continue a spatial dev focus.
 
-To be continued...
+Mid-2011, I joined Datalink, a small vehicle tracking business, which is close to home and worked as a senior developer.  My main role as a web developer was to give life to an old php web mapping system.  I did it in Ruby On Rails using Google Maps backed by a schema based postgres.  I did more javascript as I embraced Google Maps.  I also learned a bit of C++ which accepts all events from the gps devices.  From Redhat, Debian and Ubuntu, I am using FreeBSD.
+
+On 2014, I purchased a house as my growing family has liked Australia.  I were more hats in Datalink and helped them in other areas, project planning, strategy and some client facing and customer support from time to time.  I focused more on mobile particularly Android to provide Datalink a job dispatch solution hooked up into different enterprise backends. It's awesome, its being deployed and working productively for field technicians as big as Linde.  I also added itrackmygps.com as a personal project providing real time location based monitoring using an android device.
+
+By the time you have read this far, I think you want to know more about me. You can contact me on my details in my [resume](/resume/).
+  
+
+Always to be continued...
 
 
 Rupert  

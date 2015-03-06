@@ -12,6 +12,7 @@ layout: page
 * [freebsd](/cheatsheets/freebsd.html)
 	* [freebsd-network](/cheatsheets/freebsd-network.html)
 * [git](/cheatsheets/git.html)
+* [homebrew](/cheatsheets/homebrew.html)
 * [jidea](/cheatsheets/jidea.html)
 * linux
 	* [linux-date](/cheatsheets/linux-date.html)

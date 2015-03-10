@@ -18,6 +18,7 @@ layout: page
 	* [linux-date](/cheatsheets/linux-date.html)
 	* [linux-less](/cheatsheets/linux-less.html)
 	* [linux-screen](/cheatsheets/linux-screen.html)
+* [npm](/cheatsheets/npm.html)
 * [osx](/cheatsheets/osx.html)
 * [perl](/cheatsheets/perl.html)
 * [postgis](/cheatsheets/postgis.html)

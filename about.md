@@ -6,7 +6,7 @@ permalink: /about/
 
 I was the youngest of four siblings and was born in Manila, after my family migrated from Vietnam just after the war.  Though poor, my father (Filipino) and mother (Vietnamese) provided us with as much as they can.  My mother was very thrifty and I use to remember having veggies planted on our backyard for food, ampalaya (bitter-melon), chilis, camote tops and mostly corn.  
 
-During primary school, my father just landed a surveying job in Saudi Arabia, this was good as we now have some money.  My eldest brother was taken as a scholar in the University of the Philippines (UP) and influenced my mother to get us a better education. I went into a private catholic high school (Marist) for boys.  I love math subjects during high school, particularly algebra, geometry, trigonometry, etc.  
+During primary school, my father just landed a surveying job in Saudi Arabia, this was good as we now have some money.  My eldest brother was fortunate enough to have a scholarship in the University of the Philippines (UP) and later influenced my mother to invest on education. I went into a private catholic high school (Marist) for boys.  I love math subjects during high school, particularly algebra, geometry, trigonometry, etc.  
 
 By college, I was accepted in UP but it was regional (Laguna) for a degree in Applied Mathematics.  Since it was regional, I decided to transfer to its main campus as it was closer to home, travel and food expenses will be cheaper.  My father being a surveyor, persuaded me to take up a Bechelors in Geodetic Engineering (a.k.a Geomatics in some unis).  I loved UP, it was there I learned how to study and work hard at the same time.
 

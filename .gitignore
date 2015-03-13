@@ -7,5 +7,9 @@ _site
 
 node_modules
 
+# Ruby Gemsets
 #.ruby-gemset
 #.ruby-version
+
+# Idea
+.idea

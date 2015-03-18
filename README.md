@@ -44,6 +44,10 @@ Simply push to github repo https://github.com/rdeguzman/rdeguzman.github.io and 
 Cheatsheets are loaded as git submodule.  If there are any changes on cheatsheet's main repo. We need to update the submodule
 
 	git submodule update --remote cheatsheets
+	
+	# or run it from the script
+	
+	% scripts/update_cheatsheets.sh
 
 ## TODO
 

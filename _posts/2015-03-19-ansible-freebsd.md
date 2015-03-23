@@ -196,6 +196,44 @@ Now python
 	tkinter         x11-toolkits/py-tkinter
 
 	=====================================================================
+	
+Cool.  Now let's try a simple ping command, since we have python installed already.
+
+root@master:~ #	ansible dlt-server -m ping
+dlt-server | success >> {
+    "changed": false,
+    "ping": "pong"
+}
+
+### Using a simple playbook
+
+We will now install freebsd packages (i.e git) thru ansible using pkgng <http://docs.ansible.com/pkgng_module.html>.
+
+Our simple bootstrap playbook
+
+	# bootstrap.yml for installing git,vim,bash
+	
+	- name: boostrap
+	  hosts: dlt-server
+	  user: root
+	  tasks:
+	    - name: install git
+	      pkgng: name=git
+	      
+Run the playbook	      	      
+	      
+	root@master:/usr/local/etc/ansible # ansible-playbook bootstrap.yml
+
+	PLAY [boostrap] ***************************************************************
+
+	GATHERING FACTS ***************************************************************
+	ok: [dlt-server]
+
+	TASK: [install git] ***********************************************************
+	changed: [dlt-server]
+
+	PLAY RECAP ********************************************************************
+	dlt-server                 : ok=2    changed=1    unreachable=0    failed=0	      
 
 
 	

@@ -11,10 +11,11 @@ tags:
   - freebsd
 ---
 
-# FreeBSD Master
-	% pkg install lang/python
-	% pkg install ansible
-	root@master:~ #	pkg install ansible
+## Install ansible on master/parent
+After a default installation of FreeBSD on master. We immediately install python and ansible.
+
+	root@master:~# pkg install lang/python
+	root@master:~# pkg install ansible
 	Updating FreeBSD repository catalogue...
 	FreeBSD repository is up-to-date.
 	All repositories are up-to-date.
@@ -89,12 +90,24 @@ tags:
 
 	===============================================================================	
 
-# FreeBSD Node Setup
+## Hosts
 
+We add dlt-server in our ansible hosts
 
-## Install FreeBSD
+	root@master:/usr/local/etc/ansible # vi hosts
+	127.0.0.1
+	dlt-server
+	
+To ensure our ansible master can ping our child node, we add it to our /etc/hosts and ping
 
-## SSH Setup
+	root@master:/usr/local/etc/ansible # vi /etc/hosts
+	192.168.4.215   dlt-server
+
+## Setup a child server (dlt-server)
+
+This assumes we have a default FreeBSD10.1 child server which we will call dlt-server.
+
+### SSH Setup
 
 Allow root login
 
@@ -102,31 +115,90 @@ Allow root login
 	PermitRootLogin yes
 	% /etc/rc.d/sshd restart
 
-Allow master to have password less access to the node via SSH. On master copy the ssh keys to the node
+Allow master to have password less access to the node via SSH. On master copy the ssh keys to the node machine
 
-	% scp -r server_keys.tar.gz root@bsd10dev1:/root/
-	% ssh root@bsd10dev1
+	% scp -r server_keys.tar.gz root@dlt-server:/root/
+	% ssh root@dlt-server
 	% cd /root
 	% tar -zxvf server_keys.tar.gz
 	% mv ssh_keys .ssh
 	
 Let's test if the keys work. On master, 
 
-	% ssh root@bsd10dev1
-	root@bsd10dev1:~ #
+	% ssh root@dlt-server
+	root@dlt-server:~ #
 	
-## Setup Python
+### Install Python on child server
 
-Ansible needs python.
+Ansible needs python, we can install python on the child itself 
 
-	root@bsd10dev1:~ # pkg install lang/python
+	root@dlt-server:~ # pkg install lang/python
 	...
-	root@bsd10dev1:~ # which python
+	root@dlt-server:~ # which python
 	/usr/local/bin/python
 	root@bsd10dev1:~ # python --version
 	Python 2.7.9
+	
+But let's use ansible. We use the line below courtesy of <http://lampros.chaidas.com/index.php/2014/06/23/bootstrapping-pkg-and-installing-python-on-a-freebsd-target-via-ansible/> and <https://dan.langille.org/2013/12/06/bootstrapping-installing-pkg-on-freebsd-unattended-and-without-answering-yes/>	
+
+	root@master:~# ansible dlt-server -u root -m raw -a 'env ASSUME_ALWAYS_YES=YES pkg bootstrap'	
+	
+Now python
+
+	root@master:~# ansible dlt-server -u root -m raw -a 'env ASSUME_ALWAYS_YES=YES pkg install lang/python'
+	dlt-server | success | rc=0 >>
+	Updating FreeBSD repository catalogue...
+	Fetching meta.txz: 100%    944 B   0.9kB/s    00:01
+	Fetching packagesite.txz: 100%    5 MiB 213.9kB/s    00:25
+	Processing entries: 100%
+	FreeBSD repository update completed. 24086 packages processed
+	Updating database digests format: 100%
+	The following 6 packages will be affected (of 0 checked):
+
+	New packages to be INSTALLED:
+		python: 2.7_2,2
+		python27: 2.7.9
+		libffi: 3.2.1
+		indexinfo: 0.2.2
+		gettext-runtime: 0.19.4
+		python2: 2_3
+
+	The process will require 66 MiB more space.
+	10 MiB to be downloaded.
+	Fetching python-2.7_2,2.txz: 100%    992 B   1.0kB/s    00:01
+	Fetching python27-2.7.9.txz: 100%   10 MiB  82.1kB/s    02:08
+	Fetching libffi-3.2.1.txz: 100%   35 KiB  36.2kB/s    00:01
+	Fetching indexinfo-0.2.2.txz: 100%    5 KiB   5.0kB/s    00:01
+	Fetching gettext-runtime-0.19.4.txz: 100%  146 KiB  29.8kB/s    00:05
+	Fetching python2-2_3.txz: 100%    1 KiB   1.1kB/s    00:01
+	Checking integrity... done (0 conflicting)
+	[1/6] Installing indexinfo-0.2.2...
+	[1/6] Extracting indexinfo-0.2.2: 100%
+	[2/6] Installing libffi-3.2.1...
+	[2/6] Extracting libffi-3.2.1: 100%
+	[3/6] Installing gettext-runtime-0.19.4...
+	[3/6] Extracting gettext-runtime-0.19.4: 100%
+	[4/6] Installing python27-2.7.9...
+	[4/6] Extracting python27-2.7.9: 100%
+	[5/6] Installing python2-2_3...
+	[5/6] Extracting python2-2_3: 100%
+	[6/6] Installing python-2.7_2,2...
+	[6/6] Extracting python-2.7_2,2: 100%
+	Message for python27-2.7.9:
+	 =====================================================================
+
+	Note that some standard Python modules are provided as separate ports
+	as they require additional dependencies. They are available as:
+
+	bsddb           databases/py-bsddb
+	gdbm            databases/py-gdbm
+	sqlite3         databases/py-sqlite3
+	tkinter         x11-toolkits/py-tkinter
+
+	=====================================================================
 
 
-
-
+	
+	
+	
 

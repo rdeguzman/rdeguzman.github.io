@@ -28,11 +28,13 @@ Though I loved my career and relationship with my Cybersoft boss, on 2009, my wi
 
 While in AU, I missed the Philippines.  I started a hobby mobile travel project with one of my colleagues from my very first job.  www.mytravelphilippines.com was born.  It got as high as Top 1 on the Travel category for PH app store during its early years.  On 2011, my daughter was born, I worked part time on PelicanCorp and eventually left and decided I wanted to go mobile and continue a spatial dev focus.
 
-Mid-2011, I joined Datalink, a small vehicle tracking business, which is close to home and worked as a senior developer.  My main role as a web developer was to give life to an old php web mapping system.  I did it in Ruby On Rails using Google Maps backed by a schema based postgres.  I did more javascript as I embraced Google Maps.  I also learned a bit of C++ which accepts all events from the gps devices.  From Redhat, Debian and Ubuntu, I am using FreeBSD.
+Mid-2011, I joined Datalink, a small vehicle tracking business, which is close to home and worked as a senior engineer.  My main role as a web developer was to give life to a legacy php web mapping system.  I did it in Ruby On Rails using Google Maps and Postgres.  I did more javascript as I embraced Google Maps.  I also learned a bit of C++ which accepts all device events from the GPS devices.  From Redhat, Debian and Ubuntu, I am now using FreeBSD.
 
-On 2014, I purchased a house as my growing family has liked Australia.  I were more hats in Datalink and helped them in other areas, project planning, strategy and some client facing and customer support from time to time.  I focused more on mobile particularly Android to provide Datalink a job dispatch solution hooked up into different enterprise backends. It's awesome, its being deployed and working productively for field technicians as big as Linde.  I also added itrackmygps.com as a personal project providing real time location based monitoring using an android device.
+On 2014, I were more hats in Datalink and helped them in other areas, project planning, business strategy, client facing and customer support from time to time.  I focused more on mobile particularly Android to provide Datalink a job dispatch solution hooked up into various ERP backends. I also added itrackmygps.com as a personal project providing real time location based monitoring using an android device.
 
 By the time you have read this far, I think you want to know more about me. You can contact me on my details in my [resume](/resume/).
+
+Note that my thoughts and content here are my own and do not reflect the opinion of my employer.
   
 
 Always to be continued...

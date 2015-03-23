@@ -143,7 +143,7 @@ But let's use ansible. We use the line below courtesy of <http://lampros.chaidas
 
 	root@master:~# ansible dlt-server -u root -m raw -a 'env ASSUME_ALWAYS_YES=YES pkg bootstrap'	
 	
-Now python
+Now we install python thru ansible
 
 	root@master:~# ansible dlt-server -u root -m raw -a 'env ASSUME_ALWAYS_YES=YES pkg install lang/python'
 	dlt-server | success | rc=0 >>
@@ -199,17 +199,17 @@ Now python
 	
 Cool.  Now let's try a simple ping command, since we have python installed already.
 
-root@master:~ #	ansible dlt-server -m ping
-dlt-server | success >> {
-    "changed": false,
-    "ping": "pong"
-}
+	root@master:~ #	ansible dlt-server -m ping
+	dlt-server | success >> {
+	    "changed": false,
+	    "ping": "pong"
+	}
 
-### Using a simple playbook
+### Using a Playbook
 
-We will now install freebsd packages (i.e git) thru ansible using pkgng <http://docs.ansible.com/pkgng_module.html>.
+We will now install freebsd packages (i.e `git`) thru ansible using pkgng <http://docs.ansible.com/pkgng_module.html>.
 
-Our simple bootstrap playbook
+Our simple bootstrap playbook containing an `install git` task only
 
 	# bootstrap.yml for installing git,vim,bash
 	
@@ -219,10 +219,10 @@ Our simple bootstrap playbook
 	  tasks:
 	    - name: install git
 	      pkgng: name=git
-	      
+	      	      
 Run the playbook	      	      
 	      
-	root@master:/usr/local/etc/ansible # ansible-playbook bootstrap.yml
+	# ansible-playbook bootstrap.yml
 
 	PLAY [boostrap] ***************************************************************
 
@@ -233,10 +233,26 @@ Run the playbook
 	changed: [dlt-server]
 
 	PLAY RECAP ********************************************************************
-	dlt-server                 : ok=2    changed=1    unreachable=0    failed=0	      
+	dlt-server                 : ok=2    changed=1    unreachable=0    failed=0	
 
+If we add `vim` and `bash` to the playbook
+	
+	# bootstrap.yml for installing git,vim,bash
+	
+	- name: boostrap
+	  hosts: dlt-server
+	  user: root
+	  tasks:
+	    - name: install git
+	      pkgng: name=git
+	      
+	    - name: install vim
+	      pkgng: name=vim
 
+	    - name: install bash
+	      pkgng: name=bash	      
 	
 	
-	
+If you run the playbook again, the tasks that already run before will just be a green "ok".	      
 
+![Genymotion](/images/2015/03/ansible-1.png)

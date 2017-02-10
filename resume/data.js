@@ -155,54 +155,12 @@ var education = [
       "marker-symbol": "college",
       "icon": "pin-l-car+D73C50@2x.png",
       "category": "Education",
-      "date_to": "05/01/2004",
+      "date_to": "08/01/2004",
       "date_from": "10/27/2003",
       "location": "Melbourne, Australia",
       "title": "Grad Diploma of Information Systems Mgmt",
       "company": "Central Queensland University (Melbourne Campus)",
       "description": "Central Queensland University (Melbourne Campus)"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [0,0]
-    },
-    "properties": {
-      "id": 0,
-      "marker-color": "#58ACFA",
-      "marker-size": "large",
-      "marker-symbol": "college",
-      "icon": "pin-l-car+D73C50@2x.png",
-      "category": "Certificate",
-      "date_to": "05/01/2004",
-      "date_from": "05/01/2004",
-      "location": "Melbourne, Australia",
-      "title": "Advanced ColdFusion MX Developer",
-      "company": "Macromedia (now Adobe)",
-      "description": "Macromedia (now Adobe)"
-    }
-  },
-  {
-    "type": "Feature",
-    "geometry": {
-      "type": "Point",
-      "coordinates": [0,0]
-    },
-    "properties": {
-      "id": 0,
-      "marker-color": "#58ACFA",
-      "marker-size": "large",
-      "marker-symbol": "college",
-      "icon": "pin-l-car+D73C50@2x.png",
-      "category": "Education",
-      "date_to": "02/01/2004",
-      "date_from": "02/01/2004",
-      "location": "Melbourne, Australia",
-      "title": "Institute of Surveyors, Australia (ISA)",
-      "company": "Positive Assessment as relevant qualifications are being equivalent to an Australian Bachelor Degree Qualification",
-      "description": "Relevant Qualifications are being equivalent to an Australian Bachelor Degree Qualification"
     }
   },
   {

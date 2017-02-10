@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
-    <title>Ruperto De Guzman</title>
+    <title>Rupert De Guzman</title>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -43,15 +43,14 @@
         <div class="row">
 
           <div class="col-md-6">
-            <h2>Ruperto De Guzman</h2>
-            <p class="lead">Senior Geo Developer + Entrepreneur</p>
+            <h2>Rupert</h2>
+            <p class="lead">Hands-On Technical Lead</p>
           </div>
 
           <div class="col-md-3 contact">
             <ul class="fa-ul fa-lg">
               <li><i class="fa-li fa fa-globe"></i> Melbourne, Australia </li>
               <li><i class="fa-li fa fa-envelope"></i> <a href="mailto:rupert@2rmobile.com">rupert@2rmobile.com</a> </li>
-              <li><i class="fa-li fa fa-phone"></i> <a href="tel:+61422515731">+61 422 515 731</a> </li>
             </ul>
           </div>
 
@@ -70,20 +69,36 @@
       <div class="page-header">
         <p class="lead">
           <em>
-            Twelve (12) years of software, web and mobile development experience with a GIS, GPS and spatial focus.
-            Currently specializing in providing innovative mapping technologies for the web and mobile.
+            <span id="total_years"></span> years of software development
+            experience focused on web + mobile + location based technologies.
           </em>
         </p>
 
         <p class="lead">
           <em>
-            Experience in leading and developing customised web mapping solutions for utilities, logistics (field asset management and vehicle tracking) and telecom (SMS value added services) industries.
+            Lead small agile development teams in Manila,
+            Beijing and currently Melbourne, Australia.
           </em>
         </p>
 
         <p class="lead">
           <em>
-            Adept in using Open Source technologies.  Self-motivated and can work autonomously or in a team. Startup Experience.
+            While still being <b>*hands-on technically*</b>, I have worked very closely
+            with senior management and provided key strategic business decisions.
+          </em>
+        </p>
+
+        <p class="lead">
+          <em>
+            Throughout my career, I have gained a wide ranging and strategic
+            role which includes technical, people mgmt skills, operations,
+            product development and business planning / strategy.
+          </em>
+        </p>
+
+        <p class="lead">
+          <em>
+            Husband. Father of two. Loves Gardening.
           </em>
         </p>
 
@@ -158,3 +173,7 @@
     </div>
   </body>
 </html>
+<script>
+var totalExperience = getDuration('June 2002', 'now');
+$('#total_years').html(totalExperience)
+</script>

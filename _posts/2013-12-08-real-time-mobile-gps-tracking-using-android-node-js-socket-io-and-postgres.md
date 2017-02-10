@@ -29,12 +29,12 @@ TLDR; For the impatient&#8230;
 
 5. Alternatively, you can login and see the map from <http://itrackmygps.com/current> and watch live gps updates from your device.
 
-This post is about my experiments on how to display real time gps updates from a mobile client to a web browser. All the source code for this post is hosted on my [github.][2] 
+This post is about my experiments on how to display real time gps updates from a mobile client to a web browser. All the source code for this post is hosted on my [github.][2]
 
 [`https://github.com/rdeguzman/itrackmygps-android`][3]  
 [`https://github.com/rdeguzman/itrackmygps-node`][4]
 
-	![Overview](/images/2013/12/gpstracks_overview.png)
+<img src="/images/2013/12/gpstracks_overview.png" alt="gpstracks_overview.png" border="0" />
 
 ## Android Client
 
@@ -42,11 +42,11 @@ In a nutshell, an [android background service][5] listens for location (network 
 
 I spruced it up a little bit by adding [Google Map for Android v2][7] on the main activity. Thus, you will definitely need your own [Google Map key][8] to run the android client.
 
-<img src="/images/2013/12/android-map.png" alt="android-map.png" border="0" width="1238" height="1968" />
+<img src="/images/2013/12/android-map.png" alt="android-map.png" border="0" />
 
 As not to drain the battery, a SettingsActivity provides basic configuration and control for time and distance interval.
 
-<img src="/images/2013/12/android-settings.png" alt="android-settings.png" border="0" width="1238" height="1976" />
+<img src="/images/2013/12/android-settings.png" alt="android-settings.png" border="0" />
 
 ## Server backend
 
@@ -362,9 +362,9 @@ We add some google map smarties such as rendering all available markers/devices 
   </table>
 </div>
 
-As the device sends location updates you can see the actual marker move on the web client&#8217;s map! If we have multiple viewers, each of those viewers will receive location updates as well in realtime. 
+As the device sends location updates you can see the actual marker move on the web client&#8217;s map! If we have multiple viewers, each of those viewers will receive location updates as well in realtime.
 
-<img src="/images/2013/12/Screen-Shot-2013-12-08-at-3.12.06-pm.png" alt="Screen Shot 2013-12-08 at 3.12.06 pm.png" border="0" width="1578" height="1018" />
+<img src="/images/2013/12/Screen-Shot-2013-12-08-at-3.12.06-pm.png" alt="Screen Shot 2013-12-08 at 3.12.06 pm.png" border="0" />
 
 Hope you enjoy this post!
 

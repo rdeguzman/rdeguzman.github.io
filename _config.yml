@@ -1,5 +1,5 @@
 # Site settings
-title: geocoding.io
+title: rdeguzman.github.io
 email: rupert@2rmobile.com
 description: > # this means to ignore newlines until "baseurl:"
   Note that this site is not for "geocoding" or 
@@ -10,7 +10,7 @@ description: > # this means to ignore newlines until "baseurl:"
   any of the posts or technologies discussed on 
   this site.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://geocoding.io" # the base hostname & protocol for your site
+url: "http://rdeguzman.github.io" # the base hostname & protocol for your site
 twitter_username: rupertdeguzman
 github_username:  rdeguzman
 

@@ -158,9 +158,9 @@ var education = [
       "date_to": "08/01/2004",
       "date_from": "10/27/2003",
       "location": "Melbourne, Australia",
-      "title": "Grad Diploma of Information Systems Mgmt",
-      "company": "Central Queensland University (Melbourne Campus)",
-      "description": "Central Queensland University (Melbourne Campus)"
+      "title": "Postgrad Diploma of Information Systems Mgmt",
+      "company": "CQU",
+      "description": "CQU"
     }
   },
   {
@@ -179,7 +179,7 @@ var education = [
       "date_to": "06/01/2001",
       "date_from": "06/01/2000",
       "location": "Manila, Philippines",
-      "title": "M.Sc. in Remote Sensing (Postgrad units only)",
+      "title": "MS in Remote Sensing (Postgrad units only)",
       "company": "University of the Philippines, Diliman",
       "description": "College of Engineering, University of the Philippines, Diliman"
     }
@@ -200,7 +200,7 @@ var education = [
       "date_to": "03/01/2000",
       "date_from": "06/01/1994",
       "location": "Manila, Philippines",
-      "title": "B. Sc. in Geodetic Engineering",
+      "title": "BS in Geodetic Engineering",
       "company": "University of the Philippines, Diliman",
       "description": "College of Engineering, University of the Philippines, Diliman"
     }
@@ -288,16 +288,7 @@ function createEducation(){
     var ex = education[i].properties;
     var html;
     html  = "<div class='row'>";
-    html += "  <div class='col-md-3 text-right'>";
-
-    if(getDuration(ex.date_from, ex.date_to) != ""){
-      html += "    <strong>" + getDuration(ex.date_from, ex.date_to) + "</strong><br/>";
-    }
-
-    html += "    <small>" + getFormattedDate(ex.date_from, ex.date_to) + "</small><br/>";
-    html += "    <small>" + ex.location + "</small>";
-    html += "  </div>";
-    html += "  <div class='col-md-9 experience'>";
+    html += "  <div class='col-md-12 experience'>";
     html += "    <div class='title'>" + ex.title + "</div>";
     html += "    <div class='company'>" + ex.company + "</div>";
     html += "  </div>";

@@ -440,6 +440,6 @@ $( document ).ready(function() {
   createExperiences();
   createEducation();
   initMap();
-  initChart();
-  show(0);
+  //initChart();
+  //show(0);
 });

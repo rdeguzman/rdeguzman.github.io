@@ -319,8 +319,9 @@ function show(markerId){
 function showPopup(markerId) {
   featureLayer.eachLayer(function(marker) {
     if (marker.feature.properties.id === markerId) {
+      map.panTo(marker.getLatLng());
       marker.openPopup();
-      //map.panTo(marker.getLatLng());
+      map.setZoom(8);
     }
   });
 }
